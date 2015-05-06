@@ -1,0 +1,490 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		29670E37FBC3C6FB82DB124B /* libPods-ios8-restkit-zhihu.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EEE7353C1EBE928BF58EC97 /* libPods-ios8-restkit-zhihu.a */; };
+		751D838A1AF9F96D00FD95BF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 751D83891AF9F96D00FD95BF /* main.m */; };
+		751D838D1AF9F96D00FD95BF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 751D838C1AF9F96D00FD95BF /* AppDelegate.m */; };
+		751D83901AF9F96D00FD95BF /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 751D838F1AF9F96D00FD95BF /* ViewController.m */; };
+		751D83931AF9F96D00FD95BF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 751D83911AF9F96D00FD95BF /* Main.storyboard */; };
+		751D83951AF9F96D00FD95BF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 751D83941AF9F96D00FD95BF /* Images.xcassets */; };
+		751D83981AF9F96D00FD95BF /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 751D83961AF9F96D00FD95BF /* LaunchScreen.xib */; };
+		751D83A41AF9F96D00FD95BF /* ios8_restkit_zhihuTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 751D83A31AF9F96D00FD95BF /* ios8_restkit_zhihuTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		751D839E1AF9F96D00FD95BF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 751D837C1AF9F96D00FD95BF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 751D83831AF9F96D00FD95BF;
+			remoteInfo = "ios8-restkit-zhihu";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		36CF87BF23F713C340786E66 /* Pods-ios8-restkit-zhihu.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ios8-restkit-zhihu.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ios8-restkit-zhihu/Pods-ios8-restkit-zhihu.debug.xcconfig"; sourceTree = "<group>"; };
+		72B364F14C8D4DC1A56092E7 /* Pods-ios8-restkit-zhihu.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ios8-restkit-zhihu.release.xcconfig"; path = "Pods/Target Support Files/Pods-ios8-restkit-zhihu/Pods-ios8-restkit-zhihu.release.xcconfig"; sourceTree = "<group>"; };
+		751D83841AF9F96D00FD95BF /* ios8-restkit-zhihu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ios8-restkit-zhihu.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		751D83881AF9F96D00FD95BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		751D83891AF9F96D00FD95BF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		751D838B1AF9F96D00FD95BF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		751D838C1AF9F96D00FD95BF /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		751D838E1AF9F96D00FD95BF /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		751D838F1AF9F96D00FD95BF /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		751D83921AF9F96D00FD95BF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		751D83941AF9F96D00FD95BF /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		751D83971AF9F96D00FD95BF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		751D839D1AF9F96D00FD95BF /* ios8-restkit-zhihuTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ios8-restkit-zhihuTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		751D83A21AF9F96D00FD95BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		751D83A31AF9F96D00FD95BF /* ios8_restkit_zhihuTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ios8_restkit_zhihuTests.m; sourceTree = "<group>"; };
+		7EEE7353C1EBE928BF58EC97 /* libPods-ios8-restkit-zhihu.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ios8-restkit-zhihu.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		751D83811AF9F96D00FD95BF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				29670E37FBC3C6FB82DB124B /* libPods-ios8-restkit-zhihu.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		751D839A1AF9F96D00FD95BF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3286998360CAE61E66F56A0C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				36CF87BF23F713C340786E66 /* Pods-ios8-restkit-zhihu.debug.xcconfig */,
+				72B364F14C8D4DC1A56092E7 /* Pods-ios8-restkit-zhihu.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		42729E1DD17FE46FE462CAD6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7EEE7353C1EBE928BF58EC97 /* libPods-ios8-restkit-zhihu.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		751D837B1AF9F96D00FD95BF = {
+			isa = PBXGroup;
+			children = (
+				751D83861AF9F96D00FD95BF /* ios8-restkit-zhihu */,
+				751D83A01AF9F96D00FD95BF /* ios8-restkit-zhihuTests */,
+				751D83851AF9F96D00FD95BF /* Products */,
+				3286998360CAE61E66F56A0C /* Pods */,
+				42729E1DD17FE46FE462CAD6 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		751D83851AF9F96D00FD95BF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				751D83841AF9F96D00FD95BF /* ios8-restkit-zhihu.app */,
+				751D839D1AF9F96D00FD95BF /* ios8-restkit-zhihuTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		751D83861AF9F96D00FD95BF /* ios8-restkit-zhihu */ = {
+			isa = PBXGroup;
+			children = (
+				751D838B1AF9F96D00FD95BF /* AppDelegate.h */,
+				751D838C1AF9F96D00FD95BF /* AppDelegate.m */,
+				751D838E1AF9F96D00FD95BF /* ViewController.h */,
+				751D838F1AF9F96D00FD95BF /* ViewController.m */,
+				751D83911AF9F96D00FD95BF /* Main.storyboard */,
+				751D83941AF9F96D00FD95BF /* Images.xcassets */,
+				751D83961AF9F96D00FD95BF /* LaunchScreen.xib */,
+				751D83871AF9F96D00FD95BF /* Supporting Files */,
+			);
+			path = "ios8-restkit-zhihu";
+			sourceTree = "<group>";
+		};
+		751D83871AF9F96D00FD95BF /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				751D83881AF9F96D00FD95BF /* Info.plist */,
+				751D83891AF9F96D00FD95BF /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		751D83A01AF9F96D00FD95BF /* ios8-restkit-zhihuTests */ = {
+			isa = PBXGroup;
+			children = (
+				751D83A31AF9F96D00FD95BF /* ios8_restkit_zhihuTests.m */,
+				751D83A11AF9F96D00FD95BF /* Supporting Files */,
+			);
+			path = "ios8-restkit-zhihuTests";
+			sourceTree = "<group>";
+		};
+		751D83A11AF9F96D00FD95BF /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				751D83A21AF9F96D00FD95BF /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		751D83831AF9F96D00FD95BF /* ios8-restkit-zhihu */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 751D83A71AF9F96D00FD95BF /* Build configuration list for PBXNativeTarget "ios8-restkit-zhihu" */;
+			buildPhases = (
+				C32A7633658E1189AC46B2E3 /* Check Pods Manifest.lock */,
+				751D83801AF9F96D00FD95BF /* Sources */,
+				751D83811AF9F96D00FD95BF /* Frameworks */,
+				751D83821AF9F96D00FD95BF /* Resources */,
+				0E3E8FD7AC003820CB44860D /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "ios8-restkit-zhihu";
+			productName = "ios8-restkit-zhihu";
+			productReference = 751D83841AF9F96D00FD95BF /* ios8-restkit-zhihu.app */;
+			productType = "com.apple.product-type.application";
+		};
+		751D839C1AF9F96D00FD95BF /* ios8-restkit-zhihuTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 751D83AA1AF9F96D00FD95BF /* Build configuration list for PBXNativeTarget "ios8-restkit-zhihuTests" */;
+			buildPhases = (
+				751D83991AF9F96D00FD95BF /* Sources */,
+				751D839A1AF9F96D00FD95BF /* Frameworks */,
+				751D839B1AF9F96D00FD95BF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				751D839F1AF9F96D00FD95BF /* PBXTargetDependency */,
+			);
+			name = "ios8-restkit-zhihuTests";
+			productName = "ios8-restkit-zhihuTests";
+			productReference = 751D839D1AF9F96D00FD95BF /* ios8-restkit-zhihuTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		751D837C1AF9F96D00FD95BF /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0620;
+				ORGANIZATIONNAME = nickTD;
+				TargetAttributes = {
+					751D83831AF9F96D00FD95BF = {
+						CreatedOnToolsVersion = 6.2;
+					};
+					751D839C1AF9F96D00FD95BF = {
+						CreatedOnToolsVersion = 6.2;
+						TestTargetID = 751D83831AF9F96D00FD95BF;
+					};
+				};
+			};
+			buildConfigurationList = 751D837F1AF9F96D00FD95BF /* Build configuration list for PBXProject "ios8-restkit-zhihu" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 751D837B1AF9F96D00FD95BF;
+			productRefGroup = 751D83851AF9F96D00FD95BF /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				751D83831AF9F96D00FD95BF /* ios8-restkit-zhihu */,
+				751D839C1AF9F96D00FD95BF /* ios8-restkit-zhihuTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		751D83821AF9F96D00FD95BF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				751D83931AF9F96D00FD95BF /* Main.storyboard in Resources */,
+				751D83981AF9F96D00FD95BF /* LaunchScreen.xib in Resources */,
+				751D83951AF9F96D00FD95BF /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		751D839B1AF9F96D00FD95BF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0E3E8FD7AC003820CB44860D /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ios8-restkit-zhihu/Pods-ios8-restkit-zhihu-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C32A7633658E1189AC46B2E3 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		751D83801AF9F96D00FD95BF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				751D83901AF9F96D00FD95BF /* ViewController.m in Sources */,
+				751D838D1AF9F96D00FD95BF /* AppDelegate.m in Sources */,
+				751D838A1AF9F96D00FD95BF /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		751D83991AF9F96D00FD95BF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				751D83A41AF9F96D00FD95BF /* ios8_restkit_zhihuTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		751D839F1AF9F96D00FD95BF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 751D83831AF9F96D00FD95BF /* ios8-restkit-zhihu */;
+			targetProxy = 751D839E1AF9F96D00FD95BF /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		751D83911AF9F96D00FD95BF /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				751D83921AF9F96D00FD95BF /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		751D83961AF9F96D00FD95BF /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				751D83971AF9F96D00FD95BF /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		751D83A51AF9F96D00FD95BF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		751D83A61AF9F96D00FD95BF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		751D83A81AF9F96D00FD95BF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 36CF87BF23F713C340786E66 /* Pods-ios8-restkit-zhihu.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "ios8-restkit-zhihu/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		751D83A91AF9F96D00FD95BF /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 72B364F14C8D4DC1A56092E7 /* Pods-ios8-restkit-zhihu.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "ios8-restkit-zhihu/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		751D83AB1AF9F96D00FD95BF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "ios8-restkit-zhihuTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ios8-restkit-zhihu.app/ios8-restkit-zhihu";
+			};
+			name = Debug;
+		};
+		751D83AC1AF9F96D00FD95BF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "ios8-restkit-zhihuTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ios8-restkit-zhihu.app/ios8-restkit-zhihu";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		751D837F1AF9F96D00FD95BF /* Build configuration list for PBXProject "ios8-restkit-zhihu" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				751D83A51AF9F96D00FD95BF /* Debug */,
+				751D83A61AF9F96D00FD95BF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		751D83A71AF9F96D00FD95BF /* Build configuration list for PBXNativeTarget "ios8-restkit-zhihu" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				751D83A81AF9F96D00FD95BF /* Debug */,
+				751D83A91AF9F96D00FD95BF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		751D83AA1AF9F96D00FD95BF /* Build configuration list for PBXNativeTarget "ios8-restkit-zhihuTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				751D83AB1AF9F96D00FD95BF /* Debug */,
+				751D83AC1AF9F96D00FD95BF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 751D837C1AF9F96D00FD95BF /* Project object */;
+}
