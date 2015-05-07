@@ -11,6 +11,7 @@
 #import "MappingProvider.h"
 #import "StoryListItem.h"
 #import <MRProgress/MRProgress.h>
+#import "StoryViewController.h"
 
 @interface StoriesTableViewController ()
 
@@ -118,14 +119,16 @@
 }
 */
 
-/*
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    StoryViewController *storyViewController = (StoryViewController *)segue.destinationViewController;
+    
+    NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+    StoryListItem *item = [self.stories objectAtIndex:indexPath.row];
+    
+    storyViewController.storyListItem = item;
 }
-*/
 
 @end

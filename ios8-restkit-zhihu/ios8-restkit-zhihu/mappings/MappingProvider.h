@@ -12,5 +12,6 @@
 @interface MappingProvider : NSObject
 
 + (RKMapping *)storyListItemMapping;
++ (RKMapping *)storyMapping;
 
 @end

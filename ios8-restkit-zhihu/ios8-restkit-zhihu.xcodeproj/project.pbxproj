@@ -18,6 +18,8 @@
 		751D83B21AFAE34B00FD95BF /* StoryListItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 751D83B11AFAE34B00FD95BF /* StoryListItem.m */; };
 		751D83B51AFAE49300FD95BF /* StoriesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 751D83B41AFAE49300FD95BF /* StoriesTableViewController.m */; };
 		751D83B91AFAE9EC00FD95BF /* MappingProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 751D83B81AFAE9EC00FD95BF /* MappingProvider.m */; };
+		755CD2C51AFB3B27008E5819 /* StoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 755CD2C41AFB3B27008E5819 /* StoryViewController.m */; };
+		755CD2C81AFB41D1008E5819 /* Story.m in Sources */ = {isa = PBXBuildFile; fileRef = 755CD2C71AFB41D1008E5819 /* Story.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +54,10 @@
 		751D83B41AFAE49300FD95BF /* StoriesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StoriesTableViewController.m; path = views/StoriesTableViewController.m; sourceTree = "<group>"; };
 		751D83B71AFAE9EC00FD95BF /* MappingProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MappingProvider.h; sourceTree = "<group>"; };
 		751D83B81AFAE9EC00FD95BF /* MappingProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MappingProvider.m; sourceTree = "<group>"; };
+		755CD2C31AFB3B27008E5819 /* StoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StoryViewController.h; path = views/StoryViewController.h; sourceTree = "<group>"; };
+		755CD2C41AFB3B27008E5819 /* StoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StoryViewController.m; path = views/StoryViewController.m; sourceTree = "<group>"; };
+		755CD2C61AFB41D1008E5819 /* Story.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Story.h; sourceTree = "<group>"; };
+		755CD2C71AFB41D1008E5819 /* Story.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Story.m; sourceTree = "<group>"; };
 		7EEE7353C1EBE928BF58EC97 /* libPods-ios8-restkit-zhihu.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ios8-restkit-zhihu.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -168,6 +174,8 @@
 				751D838F1AF9F96D00FD95BF /* ViewController.m */,
 				751D83B31AFAE49300FD95BF /* StoriesTableViewController.h */,
 				751D83B41AFAE49300FD95BF /* StoriesTableViewController.m */,
+				755CD2C31AFB3B27008E5819 /* StoryViewController.h */,
+				755CD2C41AFB3B27008E5819 /* StoryViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -177,6 +185,8 @@
 			children = (
 				751D83B01AFAE34B00FD95BF /* StoryListItem.h */,
 				751D83B11AFAE34B00FD95BF /* StoryListItem.m */,
+				755CD2C61AFB41D1008E5819 /* Story.h */,
+				755CD2C71AFB41D1008E5819 /* Story.m */,
 			);
 			name = Models;
 			path = models;
@@ -328,7 +338,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				751D83901AF9F96D00FD95BF /* ViewController.m in Sources */,
+				755CD2C51AFB3B27008E5819 /* StoryViewController.m in Sources */,
 				751D83B51AFAE49300FD95BF /* StoriesTableViewController.m in Sources */,
+				755CD2C81AFB41D1008E5819 /* Story.m in Sources */,
 				751D838D1AF9F96D00FD95BF /* AppDelegate.m in Sources */,
 				751D83B91AFAE9EC00FD95BF /* MappingProvider.m in Sources */,
 				751D83B21AFAE34B00FD95BF /* StoryListItem.m in Sources */,

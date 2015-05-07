@@ -8,6 +8,7 @@
 
 #import "MappingProvider.h"
 #import "StoryListItem.h"
+#import "Story.h"
 
 @implementation MappingProvider
 
@@ -16,6 +17,15 @@
     [mapping addAttributeMappingsFromArray:@[@"title", @"image", @"images"]];
     [mapping addAttributeMappingsFromDictionary:@{
         @"id": @"storyId"
+    }];
+    return mapping;
+}
+
++ (RKMapping *)storyMapping {
+    RKObjectMapping *mapping = [RKObjectMapping mappingForClass:[Story class]];
+    [mapping addAttributeMappingsFromArray:@[@"body", @"css"]];
+    [mapping addAttributeMappingsFromDictionary:@{
+        @"share_url": @"shareUrl"
     }];
     return mapping;
 }

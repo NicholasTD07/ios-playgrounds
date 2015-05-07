@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ZrG-MV-qDe">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Zhihu Daily-->
@@ -26,6 +27,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="8YL-Vv-ezn" kind="show" identifier="story" id="gJ0-fs-FHB"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -33,11 +37,46 @@
                             <outlet property="delegate" destination="8x9-MF-raC" id="nSN-z8-ELk"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Zhihu Daily" id="DUC-tW-VHz"/>
+                    <navigationItem key="navigationItem" title="Zhihu Daily" id="DUC-tW-VHz">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="AED-2H-l7I"/>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b1c-6F-0cq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2382" y="385"/>
+        </scene>
+        <!--Story View Controller-->
+        <scene sceneID="7Xk-ko-s1g">
+            <objects>
+                <viewController id="8YL-Vv-ezn" customClass="StoryViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Orq-AI-ZXl"/>
+                        <viewControllerLayoutGuide type="bottom" id="sa3-MG-Frp"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="pr3-Ez-l6J">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZlX-LB-qN4">
+                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ZlX-LB-qN4" firstAttribute="top" secondItem="Orq-AI-ZXl" secondAttribute="bottom" id="BW0-nK-4B5"/>
+                            <constraint firstItem="ZlX-LB-qN4" firstAttribute="leading" secondItem="pr3-Ez-l6J" secondAttribute="leadingMargin" constant="-16" id="gDz-i3-aP3"/>
+                            <constraint firstItem="sa3-MG-Frp" firstAttribute="top" secondItem="ZlX-LB-qN4" secondAttribute="bottom" id="ip2-rG-diJ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ZlX-LB-qN4" secondAttribute="trailing" constant="-16" id="tr1-3c-g0o"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="webView" destination="ZlX-LB-qN4" id="vD9-ec-SUZ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eDd-MX-qgM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3192" y="385"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="9CF-Kg-Bvx">
