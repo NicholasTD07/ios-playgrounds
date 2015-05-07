@@ -21,6 +21,8 @@
 
 @implementation StoriesTableViewController
 
+const int kLoadCellTag = 1024;
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -36,6 +38,11 @@
     dispatch_async(queue, ^{
         [self loadStories];
     });
+}
+
+-(void)loadMoreStories {
+    // todo: load more stories
+    NSLog(@"I loaded more stories!");
 }
 
 - (void)loadStories {
@@ -76,6 +83,12 @@
     return self.stories.count + 1;
 }
 
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (cell.tag == kLoadCellTag) {
+        [self loadMoreStories];
+    }
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row < self.stories.count) {
         return [self storyCellForIndexPath: indexPath];
@@ -96,6 +109,8 @@
 - (UITableViewCell *)loadingCell {
     UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"loading"];
     UIActivityIndicatorView *activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    
+    cell.tag = kLoadCellTag;
     activityIndicator.center = cell.center;
     [activityIndicator startAnimating];
     
