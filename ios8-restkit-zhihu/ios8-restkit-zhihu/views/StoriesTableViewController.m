@@ -10,6 +10,7 @@
 #import <RestKit/RestKit.h>
 #import "MappingProvider.h"
 #import "StoryListItem.h"
+#import <MRProgress/MRProgress.h>
 
 @interface StoriesTableViewController ()
 
@@ -21,7 +22,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    
+    [MRProgressOverlayView showOverlayAddedTo:self.navigationController.view
+                                        title:@"Loading..."
+                                         mode:MRProgressOverlayViewModeIndeterminate
+                                     animated:YES
+                                    stopBlock:^(MRProgressOverlayView *progressOverlayView) {
+                                        [progressOverlayView dismiss:YES];
+                                        // TODO: stop loading
+    }];
     dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
     dispatch_async(queue, ^{
         [self loadStories];
@@ -40,10 +49,12 @@
                                                                         responseDescriptors:@[responseDescriptos]];
     [operation setCompletionBlockWithSuccess:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
         self.stories = mappingResult.array;
+        [MRProgressOverlayView dismissOverlayForView:self.navigationController.view animated:YES];
         [self.tableView reloadData];
     } failure:^(RKObjectRequestOperation *operation, NSError *error) {
         NSLog(@"ERROR: %@", error);
         NSLog(@"Response: %@", operation.HTTPRequestOperation.response);
+        [MRProgressOverlayView dismissOverlayForView:self.navigationController.view animated:YES];
     }];
     
     [operation start];
