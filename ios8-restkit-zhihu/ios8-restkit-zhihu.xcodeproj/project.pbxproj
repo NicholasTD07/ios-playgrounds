@@ -15,6 +15,9 @@
 		751D83951AF9F96D00FD95BF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 751D83941AF9F96D00FD95BF /* Images.xcassets */; };
 		751D83981AF9F96D00FD95BF /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 751D83961AF9F96D00FD95BF /* LaunchScreen.xib */; };
 		751D83A41AF9F96D00FD95BF /* ios8_restkit_zhihuTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 751D83A31AF9F96D00FD95BF /* ios8_restkit_zhihuTests.m */; };
+		751D83B21AFAE34B00FD95BF /* StoryListItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 751D83B11AFAE34B00FD95BF /* StoryListItem.m */; };
+		751D83B51AFAE49300FD95BF /* StoriesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 751D83B41AFAE49300FD95BF /* StoriesTableViewController.m */; };
+		751D83B91AFAE9EC00FD95BF /* MappingProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 751D83B81AFAE9EC00FD95BF /* MappingProvider.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +46,12 @@
 		751D839D1AF9F96D00FD95BF /* ios8-restkit-zhihuTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ios8-restkit-zhihuTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		751D83A21AF9F96D00FD95BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		751D83A31AF9F96D00FD95BF /* ios8_restkit_zhihuTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ios8_restkit_zhihuTests.m; sourceTree = "<group>"; };
+		751D83B01AFAE34B00FD95BF /* StoryListItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoryListItem.h; sourceTree = "<group>"; };
+		751D83B11AFAE34B00FD95BF /* StoryListItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoryListItem.m; sourceTree = "<group>"; };
+		751D83B31AFAE49300FD95BF /* StoriesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StoriesTableViewController.h; path = views/StoriesTableViewController.h; sourceTree = "<group>"; };
+		751D83B41AFAE49300FD95BF /* StoriesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StoriesTableViewController.m; path = views/StoriesTableViewController.m; sourceTree = "<group>"; };
+		751D83B71AFAE9EC00FD95BF /* MappingProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MappingProvider.h; sourceTree = "<group>"; };
+		751D83B81AFAE9EC00FD95BF /* MappingProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MappingProvider.m; sourceTree = "<group>"; };
 		7EEE7353C1EBE928BF58EC97 /* libPods-ios8-restkit-zhihu.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ios8-restkit-zhihu.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -105,13 +114,10 @@
 		751D83861AF9F96D00FD95BF /* ios8-restkit-zhihu */ = {
 			isa = PBXGroup;
 			children = (
-				751D838B1AF9F96D00FD95BF /* AppDelegate.h */,
-				751D838C1AF9F96D00FD95BF /* AppDelegate.m */,
-				751D838E1AF9F96D00FD95BF /* ViewController.h */,
-				751D838F1AF9F96D00FD95BF /* ViewController.m */,
-				751D83911AF9F96D00FD95BF /* Main.storyboard */,
-				751D83941AF9F96D00FD95BF /* Images.xcassets */,
-				751D83961AF9F96D00FD95BF /* LaunchScreen.xib */,
+				751D83B61AFAE99800FD95BF /* Mappings */,
+				751D83AF1AFAE30F00FD95BF /* Models */,
+				751D83AE1AFAE2FE00FD95BF /* Controllers */,
+				751D83AD1AFAE2F700FD95BF /* Views */,
 				751D83871AF9F96D00FD95BF /* Supporting Files */,
 			);
 			path = "ios8-restkit-zhihu";
@@ -120,6 +126,8 @@
 		751D83871AF9F96D00FD95BF /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				751D83941AF9F96D00FD95BF /* Images.xcassets */,
+				751D83961AF9F96D00FD95BF /* LaunchScreen.xib */,
 				751D83881AF9F96D00FD95BF /* Info.plist */,
 				751D83891AF9F96D00FD95BF /* main.m */,
 			);
@@ -141,6 +149,47 @@
 				751D83A21AF9F96D00FD95BF /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		751D83AD1AFAE2F700FD95BF /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				751D83911AF9F96D00FD95BF /* Main.storyboard */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		751D83AE1AFAE2FE00FD95BF /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				751D838B1AF9F96D00FD95BF /* AppDelegate.h */,
+				751D838C1AF9F96D00FD95BF /* AppDelegate.m */,
+				751D838E1AF9F96D00FD95BF /* ViewController.h */,
+				751D838F1AF9F96D00FD95BF /* ViewController.m */,
+				751D83B31AFAE49300FD95BF /* StoriesTableViewController.h */,
+				751D83B41AFAE49300FD95BF /* StoriesTableViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		751D83AF1AFAE30F00FD95BF /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				751D83B01AFAE34B00FD95BF /* StoryListItem.h */,
+				751D83B11AFAE34B00FD95BF /* StoryListItem.m */,
+			);
+			name = Models;
+			path = models;
+			sourceTree = "<group>";
+		};
+		751D83B61AFAE99800FD95BF /* Mappings */ = {
+			isa = PBXGroup;
+			children = (
+				751D83B71AFAE9EC00FD95BF /* MappingProvider.h */,
+				751D83B81AFAE9EC00FD95BF /* MappingProvider.m */,
+			);
+			name = Mappings;
+			path = mappings;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -279,7 +328,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				751D83901AF9F96D00FD95BF /* ViewController.m in Sources */,
+				751D83B51AFAE49300FD95BF /* StoriesTableViewController.m in Sources */,
 				751D838D1AF9F96D00FD95BF /* AppDelegate.m in Sources */,
+				751D83B91AFAE9EC00FD95BF /* MappingProvider.m in Sources */,
+				751D83B21AFAE34B00FD95BF /* StoryListItem.m in Sources */,
 				751D838A1AF9F96D00FD95BF /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
