@@ -10,4 +10,10 @@
 
 @implementation Daily
 
+- (NSString *)dateString {
+    NSDateFormatter *dateFormatter = [NSDateFormatter new];
+    [dateFormatter setDateFormat:@"yyyyMMdd"];
+    return [dateFormatter stringFromDate:self.date];
+}
+
 @end

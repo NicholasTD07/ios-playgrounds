@@ -14,4 +14,6 @@
 @property (nonatomic, copy) NSArray *stories;
 @property (nonatomic, copy) NSArray *top_stories;
 
+- (NSString *)dateString;
+
 @end

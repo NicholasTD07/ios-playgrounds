@@ -16,7 +16,10 @@
 
 @interface StoriesTableViewController ()
 
-@property (nonatomic, strong) NSArray *stories;
+// todo: put them into a class rather than here
+//  with storiesAtIndex and storyAtIndexPath
+@property (nonatomic, strong) NSMutableDictionary *storiesByDate; // date: stories
+@property (nonatomic, strong) NSMutableArray *dates; // dateString
 
 @end
 
@@ -37,7 +40,7 @@ const int kLoadCellTag = 1024;
     }];
     dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
     dispatch_async(queue, ^{
-        [self loadStories];
+        [self loadLatestDaily];
     });
 }
 
@@ -46,20 +49,26 @@ const int kLoadCellTag = 1024;
     NSLog(@"I loaded more stories!");
 }
 
-- (void)loadStories {
+-(void)loadLatestDaily {
+    NSURL *url = [NSURL URLWithString:@"http://news-at.zhihu.com/api/4/news/latest"];
+    [self loadDailyAtURL:url];
+}
+
+- (void)loadDailyAtURL:(NSURL *)url {
     NSIndexSet *statusCodeSet = RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful);
     RKResponseDescriptor *responseDescriptos = [RKResponseDescriptor
                                                 responseDescriptorWithMapping:[MappingProvider dailyMapping]
                                                 method:RKRequestMethodGET
-                                                pathPattern:@"/api/4/news/latest"
+                                                pathPattern:nil
                                                 keyPath:nil statusCodes:statusCodeSet];
-    NSURL *url = [NSURL URLWithString:@"http://news-at.zhihu.com/api/4/news/latest"];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     RKObjectRequestOperation *operation = [[RKObjectRequestOperation alloc] initWithRequest:request
                                                                         responseDescriptors:@[responseDescriptos]];
     [operation setCompletionBlockWithSuccess:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
         Daily *daily = (Daily *)mappingResult.dictionary.allValues.firstObject;
-        self.stories = daily.stories;
+        [self.storiesByDate setValue:daily.stories forKey:[daily dateString]];
+        [self.dates addObject:[daily dateString]];
+
         [MRProgressOverlayView dismissOverlayForView:self.navigationController.view animated:YES];
         [self.tableView reloadData];
     } failure:^(RKObjectRequestOperation *operation, NSError *error) {
@@ -79,11 +88,25 @@ const int kLoadCellTag = 1024;
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
+    return self.dates.count;
+}
+
+- (NSArray *)storiesAtIndex:(NSInteger)row {
+    NSString *date = [self.dates objectAtIndex:(NSUInteger)row];
+    return [self.storiesByDate objectForKey:date];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.stories.count + 1;
+    if ([self isLastSection:section]) {
+        return [self storiesAtIndex:section].count + 1;
+    }
+    else {
+        return [self storiesAtIndex:section].count;
+    }
+}
+
+- (BOOL)isLastSection:(NSInteger)section {
+    return (section == [self numberOfSectionsInTableView:self.tableView] - 1);
 }
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -93,7 +116,7 @@ const int kLoadCellTag = 1024;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.row < self.stories.count) {
+    if (indexPath.row < [self storiesAtIndex:indexPath.section].count) {
         return [self storyCellForIndexPath: indexPath];
     } else {
         return [self loadingCell];
@@ -103,10 +126,15 @@ const int kLoadCellTag = 1024;
 - (UITableViewCell *)storyCellForIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"story" forIndexPath:indexPath];
     
-    StoryListItem *item = (StoryListItem *)[self.stories objectAtIndex:[indexPath row]];
+    StoryListItem *item = [self storyAtIndexPath:indexPath];
     cell.textLabel.text = item.title;
     
     return cell;
+}
+
+- (StoryListItem *)storyAtIndexPath:(NSIndexPath *)indexPath {
+    NSArray *stories = [self storiesAtIndex:indexPath.section];
+    return (StoryListItem *)[stories objectAtIndex:[indexPath row]];
 }
 
 - (UITableViewCell *)loadingCell {
@@ -128,9 +156,25 @@ const int kLoadCellTag = 1024;
     StoryViewController *storyViewController = (StoryViewController *)segue.destinationViewController;
     
     NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-    StoryListItem *item = [self.stories objectAtIndex:indexPath.row];
+    StoryListItem *item = [self storyAtIndexPath:indexPath];
     
     storyViewController.storyListItem = item;
+}
+
+#pragma mark - Lazy initialization
+
+- (NSMutableDictionary *)storiesByDate {
+    if (!_storiesByDate) {
+        _storiesByDate = [NSMutableDictionary new];
+    }
+    return _storiesByDate;
+}
+
+- (NSMutableArray *)dates {
+    if (!_dates) {
+        _dates = [NSMutableArray new];
+    }
+    return _dates;
 }
 
 @end
