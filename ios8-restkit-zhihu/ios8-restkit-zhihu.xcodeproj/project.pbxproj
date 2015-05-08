@@ -21,6 +21,7 @@
 		755CD2C51AFB3B27008E5819 /* StoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 755CD2C41AFB3B27008E5819 /* StoryViewController.m */; };
 		755CD2C81AFB41D1008E5819 /* Story.m in Sources */ = {isa = PBXBuildFile; fileRef = 755CD2C71AFB41D1008E5819 /* Story.m */; };
 		755CD2CB1AFC3D64008E5819 /* Daily.m in Sources */ = {isa = PBXBuildFile; fileRef = 755CD2CA1AFC3D64008E5819 /* Daily.m */; };
+		755CD2CD1AFC6B0D008E5819 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 755CD2CC1AFC6B0D008E5819 /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,7 @@
 		755CD2C71AFB41D1008E5819 /* Story.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Story.m; sourceTree = "<group>"; };
 		755CD2C91AFC3D64008E5819 /* Daily.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Daily.h; sourceTree = "<group>"; };
 		755CD2CA1AFC3D64008E5819 /* Daily.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Daily.m; sourceTree = "<group>"; };
+		755CD2CC1AFC6B0D008E5819 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 		7EEE7353C1EBE928BF58EC97 /* libPods-ios8-restkit-zhihu.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ios8-restkit-zhihu.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -139,6 +141,7 @@
 				751D83961AF9F96D00FD95BF /* LaunchScreen.xib */,
 				751D83881AF9F96D00FD95BF /* Info.plist */,
 				751D83891AF9F96D00FD95BF /* main.m */,
+				755CD2CC1AFC6B0D008E5819 /* README.md */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -344,6 +347,7 @@
 			files = (
 				751D83901AF9F96D00FD95BF /* ViewController.m in Sources */,
 				755CD2C51AFB3B27008E5819 /* StoryViewController.m in Sources */,
+				755CD2CD1AFC6B0D008E5819 /* README.md in Sources */,
 				751D83B51AFAE49300FD95BF /* StoriesTableViewController.m in Sources */,
 				755CD2C81AFB41D1008E5819 /* Story.m in Sources */,
 				751D838D1AF9F96D00FD95BF /* AppDelegate.m in Sources */,
