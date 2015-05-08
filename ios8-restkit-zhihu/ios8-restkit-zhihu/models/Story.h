@@ -11,7 +11,7 @@
 @interface Story : NSObject
 
 @property (nonatomic, copy) NSString *body;
-@property (nonatomic, copy) NSString *css;
+@property (nonatomic, copy) NSArray *csses;
 @property (nonatomic, copy) NSURL *shareUrl;
 
 @end

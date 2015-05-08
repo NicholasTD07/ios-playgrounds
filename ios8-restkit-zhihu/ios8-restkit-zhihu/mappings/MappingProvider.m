@@ -24,9 +24,10 @@
 
 + (RKMapping *)storyMapping {
     RKObjectMapping *mapping = [RKObjectMapping mappingForClass:[Story class]];
-    [mapping addAttributeMappingsFromArray:@[@"body", @"css"]];
+    [mapping addAttributeMappingsFromArray:@[@"body"]];
     [mapping addAttributeMappingsFromDictionary:@{
-        @"share_url": @"shareUrl"
+        @"share_url": @"shareUrl",
+        @"css": @"csses"
     }];
     return mapping;
 }
