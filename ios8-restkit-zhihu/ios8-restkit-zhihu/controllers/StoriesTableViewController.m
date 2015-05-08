@@ -21,6 +21,9 @@
 @property (nonatomic, strong) NSMutableDictionary *storiesByDate; // date: stories
 @property (nonatomic, strong) NSMutableArray *dates; // dateString
 
+@property (nonatomic, strong) NSDate *latestDate;
+@property (nonatomic) NSInteger daysBack;
+
 @end
 
 @implementation StoriesTableViewController
@@ -30,6 +33,7 @@ const int kLoadCellTag = 1024;
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.daysBack = 0;
     [MRProgressOverlayView showOverlayAddedTo:self.navigationController.view
                                         title:@"Loading..."
                                          mode:MRProgressOverlayViewModeIndeterminate
@@ -45,16 +49,37 @@ const int kLoadCellTag = 1024;
 }
 
 -(void)loadMoreStories {
-    // todo: load more stories
-    NSLog(@"I loaded more stories!");
+    // todo: obviously there is a "LoadDaily" class living inside our controller
+    NSDate *date = [self dateByAddingDays:-self.daysBack fromDate:self.latestDate];
+    NSDateFormatter *formatter = [NSDateFormatter new];
+    [formatter setDateFormat:@"yyyyMMdd"];
+    NSString *dateString = [formatter stringFromDate:date];
+    
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://news-at.zhihu.com/api/4/news/before/%@", dateString]];
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    dispatch_async(queue, ^{
+        [self loadDailyAtURL:url withCompletionBlock:^(Daily *daily){}];
+    });
+    // to get today's daily, 20150508, url should be .../before/20150509
+    // that's why we go back in time after fetching this day's daily
+    self.daysBack += 1;
+}
+
+- (NSDate *)dateByAddingDays:(NSInteger)days fromDate:(NSDate *)date {
+    // todo: should be in somewhere else
+    // not part of controller
+    return [[NSCalendar currentCalendar] dateByAddingUnit:NSCalendarUnitDay value:days toDate:date options:0];
 }
 
 -(void)loadLatestDaily {
     NSURL *url = [NSURL URLWithString:@"http://news-at.zhihu.com/api/4/news/latest"];
-    [self loadDailyAtURL:url];
+    [self loadDailyAtURL:url withCompletionBlock:^(Daily *daily) {
+        assert([NSThread mainThread]);
+        self.latestDate = daily.date;
+    }];
 }
 
-- (void)loadDailyAtURL:(NSURL *)url {
+- (void)loadDailyAtURL:(NSURL *)url withCompletionBlock: (void (^)(Daily *))block {
     NSIndexSet *statusCodeSet = RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful);
     RKResponseDescriptor *responseDescriptos = [RKResponseDescriptor
                                                 responseDescriptorWithMapping:[MappingProvider dailyMapping]
@@ -68,6 +93,8 @@ const int kLoadCellTag = 1024;
         Daily *daily = (Daily *)mappingResult.dictionary.allValues.firstObject;
         [self.storiesByDate setValue:daily.stories forKey:[daily dateString]];
         [self.dates addObject:[daily dateString]];
+        
+        block(daily);
 
         [MRProgressOverlayView dismissOverlayForView:self.navigationController.view animated:YES];
         [self.tableView reloadData];
