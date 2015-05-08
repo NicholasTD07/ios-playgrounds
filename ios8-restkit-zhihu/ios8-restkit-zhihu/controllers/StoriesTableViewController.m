@@ -112,6 +112,32 @@ const int kLoadCellTag = 1024;
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - Table view delegate
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    return YES;
+}
+
+- (NSArray *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewRowAction *save = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDefault
+                                                                    title:@"save"
+                                                                  handler:
+                                  ^(UITableViewRowAction *action, NSIndexPath *indexPath) {
+                                      // todo:
+                                      //  load story
+                                      //  notify user
+                                      //  provide another ui "saved stories"
+                                      //  need a data storage for saved stories
+                                      //   1. in memory
+                                      //   2. in core data(proper way)
+    }];
+    return @[save];
+}
+
+-(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+}
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
