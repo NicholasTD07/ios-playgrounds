@@ -12,6 +12,7 @@
 #import "StoryListItem.h"
 #import <MRProgress/MRProgress.h>
 #import "StoryViewController.h"
+#import "Daily.h"
 
 @interface StoriesTableViewController ()
 
@@ -47,16 +48,18 @@ const int kLoadCellTag = 1024;
 
 - (void)loadStories {
     NSIndexSet *statusCodeSet = RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful);
-    RKResponseDescriptor *responseDescriptos = [RKResponseDescriptor responseDescriptorWithMapping:[MappingProvider storyListItemMapping]
-                                                                                            method:RKRequestMethodGET
-                                                                                       pathPattern:@"/api/4/news/latest"
-                                                                                           keyPath:@"stories" statusCodes:statusCodeSet];
+    RKResponseDescriptor *responseDescriptos = [RKResponseDescriptor
+                                                responseDescriptorWithMapping:[MappingProvider dailyMapping]
+                                                method:RKRequestMethodGET
+                                                pathPattern:@"/api/4/news/latest"
+                                                keyPath:nil statusCodes:statusCodeSet];
     NSURL *url = [NSURL URLWithString:@"http://news-at.zhihu.com/api/4/news/latest"];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     RKObjectRequestOperation *operation = [[RKObjectRequestOperation alloc] initWithRequest:request
                                                                         responseDescriptors:@[responseDescriptos]];
     [operation setCompletionBlockWithSuccess:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
-        self.stories = mappingResult.array;
+        Daily *daily = (Daily *)mappingResult.dictionary.allValues.firstObject;
+        self.stories = daily.stories;
         [MRProgressOverlayView dismissOverlayForView:self.navigationController.view animated:YES];
         [self.tableView reloadData];
     } failure:^(RKObjectRequestOperation *operation, NSError *error) {

@@ -9,6 +9,7 @@
 #import "MappingProvider.h"
 #import "StoryListItem.h"
 #import "Story.h"
+#import "Daily.h"
 
 @implementation MappingProvider
 
@@ -27,6 +28,14 @@
     [mapping addAttributeMappingsFromDictionary:@{
         @"share_url": @"shareUrl"
     }];
+    return mapping;
+}
+
++ (RKMapping *)dailyMapping {
+    RKObjectMapping *mapping = [RKObjectMapping mappingForClass:[Daily class]];
+    [mapping addAttributeMappingsFromArray:@[@"date"]];
+    [mapping addRelationshipMappingWithSourceKeyPath:@"stories" mapping: [self storyListItemMapping]];
+    [mapping addRelationshipMappingWithSourceKeyPath:@"top_stories" mapping: [self storyListItemMapping]];
     return mapping;
 }
 

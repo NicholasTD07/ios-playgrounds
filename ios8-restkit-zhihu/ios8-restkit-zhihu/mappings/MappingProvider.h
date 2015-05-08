@@ -13,5 +13,6 @@
 
 + (RKMapping *)storyListItemMapping;
 + (RKMapping *)storyMapping;
++ (RKMapping *)dailyMapping;
 
 @end
