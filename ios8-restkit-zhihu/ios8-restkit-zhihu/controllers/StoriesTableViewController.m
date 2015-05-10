@@ -130,6 +130,7 @@ const int kLoadCellTag = 1024;
                                       //  need a data storage for saved stories
                                       //   1. in memory
                                       //   2. in core data(proper way)
+                                      [self.tableView setEditing:NO];
     }];
     return @[save];
 }

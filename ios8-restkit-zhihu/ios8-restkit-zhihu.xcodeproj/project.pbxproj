@@ -22,6 +22,7 @@
 		755CD2C81AFB41D1008E5819 /* Story.m in Sources */ = {isa = PBXBuildFile; fileRef = 755CD2C71AFB41D1008E5819 /* Story.m */; };
 		755CD2CB1AFC3D64008E5819 /* Daily.m in Sources */ = {isa = PBXBuildFile; fileRef = 755CD2CA1AFC3D64008E5819 /* Daily.m */; };
 		755CD2CD1AFC6B0D008E5819 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 755CD2CC1AFC6B0D008E5819 /* README.md */; };
+		7596D3CC1AFF51D500EC92B6 /* Loader.m in Sources */ = {isa = PBXBuildFile; fileRef = 7596D3CB1AFF51D500EC92B6 /* Loader.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,8 @@
 		755CD2C91AFC3D64008E5819 /* Daily.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Daily.h; sourceTree = "<group>"; };
 		755CD2CA1AFC3D64008E5819 /* Daily.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Daily.m; sourceTree = "<group>"; };
 		755CD2CC1AFC6B0D008E5819 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
+		7596D3CA1AFF51D500EC92B6 /* Loader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Loader.h; sourceTree = "<group>"; };
+		7596D3CB1AFF51D500EC92B6 /* Loader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Loader.m; sourceTree = "<group>"; };
 		7EEE7353C1EBE928BF58EC97 /* libPods-ios8-restkit-zhihu.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ios8-restkit-zhihu.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -130,6 +133,8 @@
 				751D83AE1AFAE2FE00FD95BF /* Controllers */,
 				751D83AD1AFAE2F700FD95BF /* Views */,
 				751D83871AF9F96D00FD95BF /* Supporting Files */,
+				7596D3CA1AFF51D500EC92B6 /* Loader.h */,
+				7596D3CB1AFF51D500EC92B6 /* Loader.m */,
 			);
 			path = "ios8-restkit-zhihu";
 			sourceTree = "<group>";
@@ -354,6 +359,7 @@
 				751D83B91AFAE9EC00FD95BF /* MappingProvider.m in Sources */,
 				755CD2CB1AFC3D64008E5819 /* Daily.m in Sources */,
 				751D83B21AFAE34B00FD95BF /* StoryListItem.m in Sources */,
+				7596D3CC1AFF51D500EC92B6 /* Loader.m in Sources */,
 				751D838A1AF9F96D00FD95BF /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
