@@ -32,18 +32,18 @@
     }];
     dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
     dispatch_async(queue, ^{
-        [self loadStory];
+        [self loadStoryWithId: self.storyListItem.storyId];
     });
 }
 
-- (void)loadStory {
+- (void)loadStoryWithId:(NSNumber *)storyId {
     NSIndexSet *statusCodeSet = RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful);
     RKResponseDescriptor *responseDescriptos = [RKResponseDescriptor responseDescriptorWithMapping:[MappingProvider storyMapping]
                                                                                             method:RKRequestMethodGET
                                                                                        pathPattern:@"/api/4/news/:storyId"
                                                                                            keyPath:nil
                                                                                        statusCodes:statusCodeSet];
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://news-at.zhihu.com/api/4/news/%@", self.storyListItem.storyId]];
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://news-at.zhihu.com/api/4/news/%@", storyId]];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     RKObjectRequestOperation *operation = [[RKObjectRequestOperation alloc] initWithRequest:request
                                                                         responseDescriptors:@[responseDescriptos]];
