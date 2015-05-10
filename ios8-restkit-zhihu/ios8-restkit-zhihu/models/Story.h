@@ -14,4 +14,6 @@
 @property (nonatomic, copy) NSArray *csses;
 @property (nonatomic, copy) NSURL *shareUrl;
 
+- (NSString *)bodyWithCss;
+
 @end

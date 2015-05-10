@@ -10,4 +10,12 @@
 
 @implementation Story
 
+- (NSString *)bodyWithCss {
+    NSString *body = self.body;
+    for (NSString *css in self.csses) {
+        body = [body stringByAppendingFormat:@"<link rel='stylesheet' type='text/css' href='%@'>", css];
+    }
+    return body;
+}
+
 @end

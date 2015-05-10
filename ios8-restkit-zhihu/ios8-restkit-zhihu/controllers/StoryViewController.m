@@ -33,7 +33,7 @@
     dispatch_async(queue, ^{
         [Loader loadStoryWithId: self.storyListItem.storyId
                         success:^(Story *story){
-                            [self.webView loadHTMLString:story.body baseURL:nil];
+                            [self presentStory:story];
                             [MRProgressOverlayView dismissOverlayForView:self.navigationController.view animated:YES];
                         }
                         failure:^(NSError *error) {
@@ -42,6 +42,10 @@
                         }
          ];
     });
+}
+
+- (void)presentStory:(Story *)story {
+    [self.webView loadHTMLString:story.bodyWithCss baseURL:nil];
 }
 
 - (void)didReceiveMemoryWarning {
