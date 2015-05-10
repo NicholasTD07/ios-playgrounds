@@ -45,10 +45,12 @@ PODS:
     - TransitionKit (= 1.1.1)
   - SOCKit (1.1)
   - TransitionKit (1.1.1)
+  - WCFastCell (1.1)
 
 DEPENDENCIES:
   - MRProgress
   - RestKit (~> 0.20.0)
+  - WCFastCell
 
 SPEC CHECKSUMS:
   AFNetworking: cf8e418e16f0c9c7e5c3150d019a3c679d015018
@@ -56,5 +58,6 @@ SPEC CHECKSUMS:
   RestKit: ddc3c3a2b6cbe4578c4193d8e0dfe93d79333c3b
   SOCKit: c7376ac262bea9115b8f749358f762522a47d392
   TransitionKit: aec4d65b2be460fec0db04f905e8bedca601d669
+  WCFastCell: 3e20a0c711d27307584bdbd359a44a714e991151
 
 COCOAPODS: 0.37.0

@@ -2,5 +2,7 @@ platform :ios, '8.3'
 
 target 'ios8-restkit-zhihu' do
   pod 'RestKit', '~> 0.20.0'
+  # ui
   pod 'MRProgress'
+  pod 'WCFastCell'
 end

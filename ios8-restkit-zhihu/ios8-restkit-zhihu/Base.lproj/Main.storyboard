@@ -14,7 +14,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="story" textLabel="NoD-WA-c8J" rowHeight="88" style="IBUITableViewCellStyleDefault" id="bhv-Zz-nxn">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="story" textLabel="NoD-WA-c8J" rowHeight="88" style="IBUITableViewCellStyleDefault" id="bhv-Zz-nxn" customClass="WCFastCell">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bhv-Zz-nxn" id="jKx-q9-oDh">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -31,7 +31,7 @@
                                     <segue destination="8YL-Vv-ezn" kind="show" identifier="story" id="gJ0-fs-FHB"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="loading" id="FN9-o8-6tN">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="loading" id="FN9-o8-6tN" customClass="WCFastCell">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="FN9-o8-6tN" id="gv1-ee-k52">
