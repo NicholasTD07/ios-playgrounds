@@ -218,6 +218,8 @@ const int kLoadCellTag = 1024;
     
     if ([self.storiesById objectForKey:item.storyId]) {
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
+    } else {
+        cell.accessoryType = UITableViewCellAccessoryNone;
     }
     
     return cell;
