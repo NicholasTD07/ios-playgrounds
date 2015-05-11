@@ -136,6 +136,7 @@ const int kLoadCellTag = 1024;
         [Loader loadStoryWithId: storyId
                         success:^(Story *story){
                             [self.storiesById setObject:story forKey:storyId];
+                            [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
                             [TSMessage dismissActiveNotification];
                             [TSMessage showNotificationInViewController:self
                                                                   title:@"Story Saved"
@@ -214,6 +215,10 @@ const int kLoadCellTag = 1024;
     
     StoryListItem *item = [self storyItemAtIndexPath:indexPath];
     cell.textLabel.text = item.title;
+    
+    if ([self.storiesById objectForKey:item.storyId]) {
+        cell.accessoryType = UITableViewCellAccessoryCheckmark;
+    }
     
     return cell;
 }
