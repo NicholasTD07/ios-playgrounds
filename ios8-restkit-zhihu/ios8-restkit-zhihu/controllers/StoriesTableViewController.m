@@ -14,6 +14,7 @@
 #import "StoryViewController.h"
 #import "Daily.h"
 #import "Loader.h"
+#import <TSMessages/TSMessage.h>
 
 @interface StoriesTableViewController ()
 
@@ -125,8 +126,8 @@ const int kLoadCellTag = 1024;
                                                                     title:@"save"
                                                                   handler:
                                   ^(UITableViewRowAction *action, NSIndexPath *indexPath) {
-                                      // todo:
-                                      NSNumber *storyId = [self storyItemAtIndexPath:indexPath].storyId;
+                                      StoryListItem *item = [self storyItemAtIndexPath:indexPath];
+                                      NSNumber *storyId = item.storyId;
                                       [Loader loadStoryWithId: storyId
                                                       success:^(Story *story){
                                                           [self.storiesById setObject:story forKey:storyId];
@@ -135,7 +136,14 @@ const int kLoadCellTag = 1024;
                                                           NSLog(@"ERROR: %@", error);
                                                       }
                                        ];
-                                      //  notify user
+                                      [TSMessage dismissActiveNotification];
+                                      [TSMessage showNotificationInViewController:self
+                                                                            title:@"Story Saved"
+                                                                         subtitle:item.title
+                                                                             type:TSMessageNotificationTypeSuccess
+                                                                         duration:1
+                                                             canBeDismissedByUser:YES];
+                                      // todo:
                                       //  provide another ui "saved stories"
                                       //  need a data storage for saved stories
                                       //   1. in memory
