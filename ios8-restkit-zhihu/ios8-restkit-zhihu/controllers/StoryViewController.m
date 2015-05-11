@@ -8,11 +8,9 @@
 
 #import "StoryViewController.h"
 #import <MRProgress/MRProgress.h>
-#import "Story.h"
 #import "Loader.h"
 
 @interface StoryViewController ()
-@property (nonatomic, strong) Story *story;
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
 @end
 
@@ -21,6 +19,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    if (self.story) {
+        [self presentStory:self.story];
+    } else {
+        [self loadAndPresentStory];
+    }
+}
+
+- (void)loadAndPresentStory {
     [MRProgressOverlayView showOverlayAddedTo:self.navigationController.view
                                         title:@"Loading..."
                                          mode:MRProgressOverlayViewModeIndeterminate

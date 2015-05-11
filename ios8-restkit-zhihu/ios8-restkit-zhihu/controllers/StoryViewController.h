@@ -8,9 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "StoryListItem.h"
+#import "Story.h"
 
 @interface StoryViewController : UIViewController
 
+@property (nonatomic, strong) Story *story;
 @property (nonatomic, strong) StoryListItem *storyListItem;
 
 @end

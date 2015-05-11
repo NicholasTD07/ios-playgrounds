@@ -13,12 +13,14 @@
 #import <MRProgress/MRProgress.h>
 #import "StoryViewController.h"
 #import "Daily.h"
+#import "Loader.h"
 
 @interface StoriesTableViewController ()
 
 // todo: put them into a class rather than here
 //  with storiesAtIndex and storyAtIndexPath
-@property (nonatomic, strong) NSMutableDictionary *storiesByDate; // date: stories
+@property (nonatomic, strong) NSMutableDictionary *storyItemsByDate; // date: storyItem
+@property (nonatomic, strong) NSMutableDictionary *storiesById; // id: stories
 @property (nonatomic, strong) NSMutableArray *dates; // dateString
 
 @property (nonatomic, strong) NSDate *latestDate;
@@ -91,7 +93,7 @@ const int kLoadCellTag = 1024;
                                                                         responseDescriptors:@[responseDescriptos]];
     [operation setCompletionBlockWithSuccess:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
         Daily *daily = (Daily *)mappingResult.dictionary.allValues.firstObject;
-        [self.storiesByDate setValue:daily.stories forKey:[daily dateString]];
+        [self.storyItemsByDate setValue:daily.stories forKey:[daily dateString]];
         [self.dates addObject:[daily dateString]];
         
         block(daily);
@@ -124,7 +126,15 @@ const int kLoadCellTag = 1024;
                                                                   handler:
                                   ^(UITableViewRowAction *action, NSIndexPath *indexPath) {
                                       // todo:
-                                      //  load story
+                                      NSNumber *storyId = [self storyItemAtIndexPath:indexPath].storyId;
+                                      [Loader loadStoryWithId: storyId
+                                                      success:^(Story *story){
+                                                          [self.storiesById setObject:story forKey:storyId];
+                                                      }
+                                                      failure:^(NSError *error) {
+                                                          NSLog(@"ERROR: %@", error);
+                                                      }
+                                       ];
                                       //  notify user
                                       //  provide another ui "saved stories"
                                       //  need a data storage for saved stories
@@ -147,7 +157,7 @@ const int kLoadCellTag = 1024;
 
 - (NSArray *)storiesAtIndex:(NSInteger)row {
     NSString *date = [self.dates objectAtIndex:(NSUInteger)row];
-    return [self.storiesByDate objectForKey:date];
+    return [self.storyItemsByDate objectForKey:date];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -180,13 +190,13 @@ const int kLoadCellTag = 1024;
 - (UITableViewCell *)storyCellForIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"story" forIndexPath:indexPath];
     
-    StoryListItem *item = [self storyAtIndexPath:indexPath];
+    StoryListItem *item = [self storyItemAtIndexPath:indexPath];
     cell.textLabel.text = item.title;
     
     return cell;
 }
 
-- (StoryListItem *)storyAtIndexPath:(NSIndexPath *)indexPath {
+- (StoryListItem *)storyItemAtIndexPath:(NSIndexPath *)indexPath {
     NSArray *stories = [self storiesAtIndex:indexPath.section];
     return (StoryListItem *)[stories objectAtIndex:[indexPath row]];
 }
@@ -210,18 +220,27 @@ const int kLoadCellTag = 1024;
     StoryViewController *storyViewController = (StoryViewController *)segue.destinationViewController;
     
     NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-    StoryListItem *item = [self storyAtIndexPath:indexPath];
+    StoryListItem *item = [self storyItemAtIndexPath:indexPath];
+    Story *story = [self.storiesById objectForKey:item.storyId];
     
     storyViewController.storyListItem = item;
+    storyViewController.story = story;
 }
 
 #pragma mark - Lazy initialization
 
-- (NSMutableDictionary *)storiesByDate {
-    if (!_storiesByDate) {
-        _storiesByDate = [NSMutableDictionary new];
+- (NSMutableDictionary *)storiesById {
+    if (!_storiesById) {
+        _storiesById = [NSMutableDictionary new];
     }
-    return _storiesByDate;
+    return _storiesById;
+}
+
+- (NSMutableDictionary *)storyItemsByDate {
+    if (!_storyItemsByDate) {
+        _storyItemsByDate = [NSMutableDictionary new];
+    }
+    return _storyItemsByDate;
 }
 
 - (NSMutableArray *)dates {
