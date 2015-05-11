@@ -26,7 +26,12 @@ which stories are saved.
 ## What else would you like to add into it? (todos)
 
 * save data into Core Data
-* load data both from network and local data storage
+ * load data both from network and local data storage
+* a tab menu to select different themes (http://news-at.zhihu.com/api/4/theme/:themeId)
+* one tab to show multiple favorite themes (default daily + other themes)
+* use show detail segue to show news content
+ * add swipe gesture recognizer to get back to list view
+ * fix the status bar to be solid
 
 ## What third party frameworks are being used?
 
