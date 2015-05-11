@@ -128,21 +128,31 @@ const int kLoadCellTag = 1024;
                                   ^(UITableViewRowAction *action, NSIndexPath *indexPath) {
                                       StoryListItem *item = [self storyItemAtIndexPath:indexPath];
                                       NSNumber *storyId = item.storyId;
-                                      [Loader loadStoryWithId: storyId
-                                                      success:^(Story *story){
-                                                          [self.storiesById setObject:story forKey:storyId];
-                                                      }
-                                                      failure:^(NSError *error) {
-                                                          NSLog(@"ERROR: %@", error);
-                                                      }
-                                       ];
-                                      [TSMessage dismissActiveNotification];
-                                      [TSMessage showNotificationInViewController:self
-                                                                            title:@"Story Saved"
-                                                                         subtitle:item.title
-                                                                             type:TSMessageNotificationTypeSuccess
-                                                                         duration:1
-                                                             canBeDismissedByUser:YES];
+                                      if ([self.storiesById objectForKey:storyId]) {
+                                          [TSMessage dismissActiveNotification];
+                                          [TSMessage showNotificationInViewController:self
+                                                                                title:@"Story Already Saved :)"
+                                                                             subtitle:item.title
+                                                                                 type:TSMessageNotificationTypeMessage
+                                                                             duration:2
+                                                                 canBeDismissedByUser:YES];
+                                      } else {
+                                          [Loader loadStoryWithId: storyId
+                                                          success:^(Story *story){
+                                                              [self.storiesById setObject:story forKey:storyId];
+                                                              [TSMessage dismissActiveNotification];
+                                                              [TSMessage showNotificationInViewController:self
+                                                                                                    title:@"Story Saved"
+                                                                                                 subtitle:item.title
+                                                                                                     type:TSMessageNotificationTypeSuccess
+                                                                                                 duration:2
+                                                                                     canBeDismissedByUser:YES];
+                                                          }
+                                                          failure:^(NSError *error) {
+                                                              NSLog(@"ERROR: %@", error);
+                                                          }
+                                           ];
+                                      }
                                       // todo:
                                       //  provide another ui "saved stories"
                                       //  need a data storage for saved stories
