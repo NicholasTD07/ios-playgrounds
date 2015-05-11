@@ -121,49 +121,53 @@ const int kLoadCellTag = 1024;
     return YES;
 }
 
+- (void)saveStoryAtIndexPath:(NSIndexPath *)indexPath {
+    StoryListItem *item = [self storyItemAtIndexPath:indexPath];
+    NSNumber *storyId = item.storyId;
+    if ([self.storiesById objectForKey:storyId]) {
+        [TSMessage dismissActiveNotification];
+        [TSMessage showNotificationInViewController:self
+                                              title:@"Story Already Saved :)"
+                                           subtitle:item.title
+                                               type:TSMessageNotificationTypeMessage
+                                           duration:2
+                               canBeDismissedByUser:YES];
+    } else {
+        [Loader loadStoryWithId: storyId
+                        success:^(Story *story){
+                            [self.storiesById setObject:story forKey:storyId];
+                            [TSMessage dismissActiveNotification];
+                            [TSMessage showNotificationInViewController:self
+                                                                  title:@"Story Saved"
+                                                               subtitle:item.title
+                                                                   type:TSMessageNotificationTypeSuccess
+                                                               duration:2
+                                                   canBeDismissedByUser:YES];
+                        }
+                        failure:^(NSError *error) {
+                            NSLog(@"ERROR: %@", error);
+                        }
+         ];
+    }
+    // todo:
+    //  provide another ui "saved stories"
+    //  need a data storage for saved stories
+    //   1. in memory
+    //   2. in core data(proper way)
+    [self.tableView setEditing:NO];
+}
+
 - (NSArray *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewRowAction *save = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDefault
                                                                     title:@"save"
                                                                   handler:
                                   ^(UITableViewRowAction *action, NSIndexPath *indexPath) {
-                                      StoryListItem *item = [self storyItemAtIndexPath:indexPath];
-                                      NSNumber *storyId = item.storyId;
-                                      if ([self.storiesById objectForKey:storyId]) {
-                                          [TSMessage dismissActiveNotification];
-                                          [TSMessage showNotificationInViewController:self
-                                                                                title:@"Story Already Saved :)"
-                                                                             subtitle:item.title
-                                                                                 type:TSMessageNotificationTypeMessage
-                                                                             duration:2
-                                                                 canBeDismissedByUser:YES];
-                                      } else {
-                                          [Loader loadStoryWithId: storyId
-                                                          success:^(Story *story){
-                                                              [self.storiesById setObject:story forKey:storyId];
-                                                              [TSMessage dismissActiveNotification];
-                                                              [TSMessage showNotificationInViewController:self
-                                                                                                    title:@"Story Saved"
-                                                                                                 subtitle:item.title
-                                                                                                     type:TSMessageNotificationTypeSuccess
-                                                                                                 duration:2
-                                                                                     canBeDismissedByUser:YES];
-                                                          }
-                                                          failure:^(NSError *error) {
-                                                              NSLog(@"ERROR: %@", error);
-                                                          }
-                                           ];
-                                      }
-                                      // todo:
-                                      //  provide another ui "saved stories"
-                                      //  need a data storage for saved stories
-                                      //   1. in memory
-                                      //   2. in core data(proper way)
-                                      [self.tableView setEditing:NO];
-    }];
+                                      [self saveStoryAtIndexPath:indexPath];
+                                  }];
     return @[save];
 }
 
--(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     
 }
 
