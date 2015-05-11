@@ -15,5 +15,6 @@
 @property (nonatomic, copy) NSURL *shareUrl;
 
 - (NSString *)bodyWithCss;
+- (NSString *)bodyWithCssInNightMode;
 
 @end
