@@ -51,7 +51,7 @@
 }
 
 - (void)presentStory:(Story *)story {
-    [self.webView loadHTMLString:story.bodyWithCss baseURL:nil];
+    [self.webView loadHTMLString:[story bodyWithCss] baseURL:nil];
 }
 
 - (void)didReceiveMemoryWarning {
