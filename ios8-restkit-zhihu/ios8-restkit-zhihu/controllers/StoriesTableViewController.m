@@ -121,6 +121,21 @@ const int kLoadCellTag = 1024;
     return YES;
 }
 
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+}
+
+- (NSArray *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewRowAction *save = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDefault
+                                                                    title:@"save"
+                                                                  handler:
+                                  ^(UITableViewRowAction *action, NSIndexPath *indexPath) {
+                                      [self saveStoryAtIndexPath:indexPath];
+                                  }];
+    return @[save];
+}
+
 - (void)saveStoryAtIndexPath:(NSIndexPath *)indexPath {
     StoryListItem *item = [self storyItemAtIndexPath:indexPath];
     NSNumber *storyId = item.storyId;
@@ -156,20 +171,6 @@ const int kLoadCellTag = 1024;
     //   1. in memory
     //   2. in core data(proper way)
     [self.tableView setEditing:NO];
-}
-
-- (NSArray *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewRowAction *save = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDefault
-                                                                    title:@"save"
-                                                                  handler:
-                                  ^(UITableViewRowAction *action, NSIndexPath *indexPath) {
-                                      [self saveStoryAtIndexPath:indexPath];
-                                  }];
-    return @[save];
-}
-
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    
 }
 
 #pragma mark - Table view data source
