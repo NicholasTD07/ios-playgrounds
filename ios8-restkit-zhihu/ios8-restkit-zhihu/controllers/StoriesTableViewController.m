@@ -37,6 +37,10 @@ const int kLoadCellTag = 1024;
     [super viewDidLoad];
     
     self.daysBack = 0;
+    
+    self.refreshControl = [UIRefreshControl new];
+    [self.refreshControl addTarget:self action:@selector(refresh:) forControlEvents:UIControlEventValueChanged];
+    
     [MRProgressOverlayView showOverlayAddedTo:self.navigationController.view
                                         title:@"Loading..."
                                          mode:MRProgressOverlayViewModeIndeterminate
@@ -47,11 +51,29 @@ const int kLoadCellTag = 1024;
     }];
     dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
     dispatch_async(queue, ^{
-        [self loadLatestDaily];
+        NSURL *url = [NSURL URLWithString:latestUrl];
+        [self loadDailyAtURL:url withCompletionBlock:^(Daily *daily) {
+            assert([NSThread mainThread]);
+            self.latestDate = daily.date;
+        }];
     });
 }
 
--(void)loadMoreStories {
+- (void)refresh:(UIRefreshControl *)refreshControl {
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    dispatch_async(queue, ^{
+        NSURL *url = [NSURL URLWithString:latestUrl];
+        [self loadDailyAtURL:url withCompletionBlock:^(Daily *daily) {
+            assert([NSThread mainThread]);
+            self.latestDate = daily.date;
+            [refreshControl endRefreshing];
+        }];
+    });
+}
+
+static NSString *latestUrl = @"http://news-at.zhihu.com/api/4/news/latest";
+
+- (void)loadMoreStories {
     // todo: obviously there is a "LoadDaily" class living inside our controller
     NSDate *date = [self dateByAddingDays:-self.daysBack fromDate:self.latestDate];
     NSDateFormatter *formatter = [NSDateFormatter new];
@@ -72,14 +94,6 @@ const int kLoadCellTag = 1024;
     // todo: should be in somewhere else
     // not part of controller
     return [[NSCalendar currentCalendar] dateByAddingUnit:NSCalendarUnitDay value:days toDate:date options:0];
-}
-
--(void)loadLatestDaily {
-    NSURL *url = [NSURL URLWithString:@"http://news-at.zhihu.com/api/4/news/latest"];
-    [self loadDailyAtURL:url withCompletionBlock:^(Daily *daily) {
-        assert([NSThread mainThread]);
-        self.latestDate = daily.date;
-    }];
 }
 
 - (void)loadDailyAtURL:(NSURL *)url withCompletionBlock: (void (^)(Daily *))block {
