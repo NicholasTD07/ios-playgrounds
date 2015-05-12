@@ -33,6 +33,18 @@ which stories are saved.
  * add swipe gesture recognizer to get back to list view
  * fix the status bar to be solid
 
+## What needs to be cleaned up?
+
+* use NSOperation rather than GCD
+ * higher level API
+ * being able to cancel an operation
+* StoriesTableViewController
+ * DailyRepository class as a container of Daily and also stories
+ * extract Loader functionality
+ * date handling methods
+* Use News as the term everywhere
+ * rather than using both story and news
+
 ## What third party frameworks are being used?
 
 * Restkit - load, parse, and map json
