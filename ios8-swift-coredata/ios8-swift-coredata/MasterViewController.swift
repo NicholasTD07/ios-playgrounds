@@ -40,16 +40,26 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    func setTimeStampedToNow(inout timeStampable: TimeStamped) {
+        timeStampable.timeStamp = NSDate()
+    }
 
     func insertNewObject(sender: AnyObject) {
         let context = self.fetchedResultsController.managedObjectContext
         let entity = self.fetchedResultsController.fetchRequest.entity!
-        let newManagedObject = NSEntityDescription.insertNewObjectForEntityForName(entity.name!, inManagedObjectContext: context) as! NSManagedObject
-             
+        let newManagedObject = NSEntityDescription.insertNewObjectForEntityForName(entity.name!, inManagedObjectContext: context) as! EventMO
+
         // If appropriate, configure the new managed object.
         // Normally you should use accessor methods, but using KVC here avoids the need to add a custom class to the template.
-        newManagedObject.setValue(NSDate(), forKey: "timeStamp")
-             
+       // newManagedObject.setValue(NSDate(), forKey: "timeStamp")
+        newManagedObject.timeStamp = NSDate()
+        println(newManagedObject.timeStamp)
+        var timeStamped = newManagedObject as TimeStamped
+        println(timeStamped.timeStamp)
+        timeStamped.timeStamp = NSDate()
+        println(timeStamped.timeStamp)
+
         // Save the context.
         var error: NSError? = nil
         if !context.save(&error) {
@@ -112,7 +122,7 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     }
 
     func configureCell(cell: UITableViewCell, atIndexPath indexPath: NSIndexPath) {
-            let object = self.fetchedResultsController.objectAtIndexPath(indexPath) as! NSManagedObject
+            let object = self.fetchedResultsController.objectAtIndexPath(indexPath) as! EventMO
         cell.textLabel!.text = object.valueForKey("timeStamp")!.description
     }
 

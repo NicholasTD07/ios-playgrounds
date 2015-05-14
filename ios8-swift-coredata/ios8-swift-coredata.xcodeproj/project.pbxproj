@@ -15,6 +15,10 @@
 		75E4DA521B02D90E007336A9 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 75E4DA511B02D90E007336A9 /* Images.xcassets */; };
 		75E4DA551B02D90E007336A9 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 75E4DA531B02D90E007336A9 /* LaunchScreen.xib */; };
 		75E4DA611B02D90E007336A9 /* ios8_swift_coredataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E4DA601B02D90E007336A9 /* ios8_swift_coredataTests.swift */; };
+		75E4DA6B1B02DD20007336A9 /* TimeStamped.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E4DA6A1B02DD20007336A9 /* TimeStamped.swift */; };
+		75E4DA791B02E4E2007336A9 /* _EventMO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E4DA771B02E4E2007336A9 /* _EventMO.swift */; };
+		75E4DA7A1B02E4E2007336A9 /* EventMO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E4DA781B02E4E2007336A9 /* EventMO.swift */; };
+		75E4DA7E1B02E5C1007336A9 /* swift_core_data_protocol_fixes.c in Sources */ = {isa = PBXBuildFile; fileRef = 75E4DA7C1B02E5C1007336A9 /* swift_core_data_protocol_fixes.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +44,13 @@
 		75E4DA5A1B02D90E007336A9 /* ios8-swift-coredataTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ios8-swift-coredataTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		75E4DA5F1B02D90E007336A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		75E4DA601B02D90E007336A9 /* ios8_swift_coredataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ios8_swift_coredataTests.swift; sourceTree = "<group>"; };
+		75E4DA6A1B02DD20007336A9 /* TimeStamped.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeStamped.swift; sourceTree = "<group>"; };
+		75E4DA771B02E4E2007336A9 /* _EventMO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _EventMO.swift; sourceTree = "<group>"; };
+		75E4DA781B02E4E2007336A9 /* EventMO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventMO.swift; sourceTree = "<group>"; };
+		75E4DA7B1B02E5C1007336A9 /* ios8-swift-coredata-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ios8-swift-coredata-Bridging-Header.h"; sourceTree = "<group>"; };
+		75E4DA7C1B02E5C1007336A9 /* swift_core_data_protocol_fixes.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = swift_core_data_protocol_fixes.c; sourceTree = "<group>"; };
+		75E4DA7D1B02E5C1007336A9 /* swift_core_data_protocol_fixes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = swift_core_data_protocol_fixes.h; sourceTree = "<group>"; };
+		75E4DA7F1B033205007336A9 /* SwiftAndProtocol.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = SwiftAndProtocol.playground; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,13 +92,12 @@
 		75E4DA421B02D90E007336A9 /* ios8-swift-coredata */ = {
 			isa = PBXGroup;
 			children = (
-				75E4DA451B02D90E007336A9 /* AppDelegate.swift */,
-				75E4DA4A1B02D90E007336A9 /* MasterViewController.swift */,
-				75E4DA4C1B02D90E007336A9 /* DetailViewController.swift */,
-				75E4DA4E1B02D90E007336A9 /* Main.storyboard */,
-				75E4DA511B02D90E007336A9 /* Images.xcassets */,
-				75E4DA531B02D90E007336A9 /* LaunchScreen.xib */,
+				75E4DA771B02E4E2007336A9 /* _EventMO.swift */,
+				75E4DA781B02E4E2007336A9 /* EventMO.swift */,
 				75E4DA471B02D90E007336A9 /* ios8_swift_coredata.xcdatamodeld */,
+				75E4DA6A1B02DD20007336A9 /* TimeStamped.swift */,
+				75E4DA6C1B02DE4F007336A9 /* Controllers */,
+				75E4DA6D1B02DE5A007336A9 /* Views */,
 				75E4DA431B02D90E007336A9 /* Supporting Files */,
 			);
 			path = "ios8-swift-coredata";
@@ -96,7 +106,11 @@
 		75E4DA431B02D90E007336A9 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				75E4DA511B02D90E007336A9 /* Images.xcassets */,
 				75E4DA441B02D90E007336A9 /* Info.plist */,
+				75E4DA7C1B02E5C1007336A9 /* swift_core_data_protocol_fixes.c */,
+				75E4DA7D1B02E5C1007336A9 /* swift_core_data_protocol_fixes.h */,
+				75E4DA7B1B02E5C1007336A9 /* ios8-swift-coredata-Bridging-Header.h */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -118,6 +132,26 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		75E4DA6C1B02DE4F007336A9 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				75E4DA451B02D90E007336A9 /* AppDelegate.swift */,
+				75E4DA4A1B02D90E007336A9 /* MasterViewController.swift */,
+				75E4DA7F1B033205007336A9 /* SwiftAndProtocol.playground */,
+				75E4DA4C1B02D90E007336A9 /* DetailViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		75E4DA6D1B02DE5A007336A9 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				75E4DA4E1B02D90E007336A9 /* Main.storyboard */,
+				75E4DA531B02D90E007336A9 /* LaunchScreen.xib */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -125,6 +159,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 75E4DA641B02D90E007336A9 /* Build configuration list for PBXNativeTarget "ios8-swift-coredata" */;
 			buildPhases = (
+				75E4DA761B02E425007336A9 /* Generate Core Data Models */,
 				75E4DA3C1B02D90E007336A9 /* Sources */,
 				75E4DA3D1B02D90E007336A9 /* Frameworks */,
 				75E4DA3E1B02D90E007336A9 /* Resources */,
@@ -213,6 +248,23 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		75E4DA761B02E425007336A9 /* Generate Core Data Models */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Generate Core Data Models";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "cd \"$PROJECT_DIR/ios8-swift-coredata\" && /usr/local/bin/mogenerator --v2 --swift --model=\"ios8_swift_coredata.xcdatamodeld\"";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		75E4DA3C1B02D90E007336A9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -220,6 +272,10 @@
 			files = (
 				75E4DA491B02D90E007336A9 /* ios8_swift_coredata.xcdatamodeld in Sources */,
 				75E4DA461B02D90E007336A9 /* AppDelegate.swift in Sources */,
+				75E4DA791B02E4E2007336A9 /* _EventMO.swift in Sources */,
+				75E4DA7A1B02E4E2007336A9 /* EventMO.swift in Sources */,
+				75E4DA7E1B02E5C1007336A9 /* swift_core_data_protocol_fixes.c in Sources */,
+				75E4DA6B1B02DD20007336A9 /* TimeStamped.swift in Sources */,
 				75E4DA4B1B02D90E007336A9 /* MasterViewController.swift in Sources */,
 				75E4DA4D1B02D90E007336A9 /* DetailViewController.swift in Sources */,
 			);
@@ -350,9 +406,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = "ios8-swift-coredata/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "ios8-swift-coredata/ios8-swift-coredata-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -360,9 +419,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = "ios8-swift-coredata/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "ios8-swift-coredata/ios8-swift-coredata-Bridging-Header.h";
 			};
 			name = Release;
 		};
