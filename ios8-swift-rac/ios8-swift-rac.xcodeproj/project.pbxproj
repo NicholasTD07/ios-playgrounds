@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		724B012973863C9E06FB1FAC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C2741BA80923F18FB3A0541F /* Images.xcassets */; };
 		751BCB374A984A2B12323BD0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6354A987428179AB4947652B /* AppDelegate.swift */; };
+		75B34B141B09FF9B000FFAA9 /* ReactiveCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75B34B131B09FF9B000FFAA9 /* ReactiveCocoa.framework */; };
 		8CEA42556D7F4284AAA1C8BD /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 29CA5B6F355386EAAC01F4C7 /* Settings.bundle */; };
 		E9EF568899FEBDBD03518669 /* Main.storyboard in Sources */ = {isa = PBXBuildFile; fileRef = 38EE4D24C0181CFF5585A4BD /* Main.storyboard */; };
 		ECE5EE16B9C2DA554C9F2278 /* LaunchScreen.xib in Sources */ = {isa = PBXBuildFile; fileRef = D942764F2ACD399402166429 /* LaunchScreen.xib */; };
@@ -29,6 +30,7 @@
 		29CA5B6F355386EAAC01F4C7 /* Settings.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		38EE4D24C0181CFF5585A4BD /* Main.storyboard */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		6354A987428179AB4947652B /* AppDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		75B34B131B09FF9B000FFAA9 /* ReactiveCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveCocoa.framework; path = Carthage/Build/iOS/ReactiveCocoa.framework; sourceTree = "<group>"; };
 		B7B4AAB661983DBF6441E39A /* ios8-swift-rac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ios8-swift-rac.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC50FE5CDF528F7AE23693B7 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C2741BA80923F18FB3A0541F /* Images.xcassets */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -43,6 +45,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				75B34B141B09FF9B000FFAA9 /* ReactiveCocoa.framework in Frameworks */,
 				FD89444C3B0842D780D15526 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -123,6 +126,7 @@
 		5D5144769B98404ED0F6FEF2 /* iOS */ = {
 			isa = PBXGroup;
 			children = (
+				75B34B131B09FF9B000FFAA9 /* ReactiveCocoa.framework */,
 				DF19457C36F15A41B7931E3E /* Foundation.framework */,
 			);
 			name = iOS;
@@ -232,6 +236,7 @@
 				3EB3CFF1E5A263AA984E0C17 /* Resources */,
 				102460796A6D9388A3AFAD07 /* Warn for TODO and FIXME comments */,
 				F7E569B27DC67B9A25B26960 /* Set version number */,
+				75B34B151B0A004C000FFAA9 /* Carthage */,
 			);
 			buildRules = (
 			);
@@ -322,6 +327,21 @@
 			shellPath = /bin/sh;
 			shellScript = "KEYWORDS=\"TODO:|FIXME:|\\?\\?\\?:|\\!\\!\\!:\"\nFILE_EXTENSIONS=\"swift|h|m|mm|c|cpp\"\nfind -E \"${SRCROOT}\" -ipath \"${SRCROOT}/pods\" -prune -o \\( -regex \".*\\.($FILE_EXTENSIONS)$\" \\) -print0 | xargs -0 egrep --with-filename --line-number --only-matching \"($KEYWORDS).*\\$\" | perl -p -e \"s/($KEYWORDS)/ warning: \\$1/\"\n";
 		};
+		75B34B151B0A004C000FFAA9 /* Carthage */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/ReactiveCocoa.framework",
+			);
+			name = Carthage;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
 		F7E569B27DC67B9A25B26960 /* Set version number */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -373,6 +393,10 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				COPY_PHASE_STRIP = NO;
 				DSTROOT = /tmp/xcodeproj.dst;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -444,6 +468,10 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				COPY_PHASE_STRIP = YES;
 				DSTROOT = /tmp/xcodeproj.dst;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
 				INFOPLIST_FILE = "ios8-swift-rac/Resources/Other-Sources/Info.plist";
