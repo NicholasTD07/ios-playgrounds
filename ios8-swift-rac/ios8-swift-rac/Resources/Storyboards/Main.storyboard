@@ -8,7 +8,7 @@
         <!--Change Password-->
         <scene sceneID="8js-lr-8Mk">
             <objects>
-                <tableViewController title="Change Password" id="dQN-pu-d69" sceneMemberID="viewController">
+                <tableViewController title="Change Password" id="dQN-pu-d69" customClass="ChangePasswordViewController" customModule="ios8_swift_rac" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="jal-VP-zWC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

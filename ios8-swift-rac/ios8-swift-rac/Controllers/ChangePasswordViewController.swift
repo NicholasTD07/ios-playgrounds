@@ -9,7 +9,7 @@
 import UIKit
 import ReactiveCocoa
 
-class ChangePasswordViewController: UIViewController {
+class ChangePasswordViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
