@@ -10,6 +10,10 @@ import UIKit
 import ReactiveCocoa
 
 class ChangePasswordViewController: UITableViewController {
+    @IBOutlet weak var currentPasswordLabel: UILabel!
+    @IBOutlet weak var currentPasswordTextField: UITextField!
+    @IBOutlet weak var newPasswordTextField: UITextField!
+    @IBOutlet weak var confirmPasswordTextField: UITextField!
 
     override func viewDidLoad() {
         super.viewDidLoad()

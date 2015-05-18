@@ -141,6 +141,12 @@
                     <navigationItem key="navigationItem" title="Change Password" id="MHA-kW-HAc">
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="1Wz-Zd-4y2"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="confirmPasswordTextField" destination="mVq-03-vJp" id="ndk-zU-2a9"/>
+                        <outlet property="currentPasswordLabel" destination="htu-4g-fdI" id="PUA-fW-IqW"/>
+                        <outlet property="currentPasswordTextField" destination="JVT-jQ-9or" id="XVc-WQ-uO7"/>
+                        <outlet property="newPasswordTextField" destination="M5J-m5-eQs" id="LJe-Dj-dbP"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7pG-aW-KWa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
