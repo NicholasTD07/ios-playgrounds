@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		724B012973863C9E06FB1FAC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C2741BA80923F18FB3A0541F /* Images.xcassets */; };
 		751BCB374A984A2B12323BD0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6354A987428179AB4947652B /* AppDelegate.swift */; };
+		7587BB0B1B0C7E2900A0A4B3 /* RACHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7587BB0A1B0C7E2900A0A4B3 /* RACHelpers.swift */; };
 		758DA3FE1B08AA9900102337 /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758DA3FD1B08AA9900102337 /* ChangePasswordViewController.swift */; };
 		758DA41E1B096BCA00102337 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758DA41D1B096BCA00102337 /* User.swift */; };
 		75B34B171B0BEFA6000FFAA9 /* ReactiveCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75B34B161B0BEFA6000FFAA9 /* ReactiveCocoa.framework */; };
@@ -32,6 +33,7 @@
 		29CA5B6F355386EAAC01F4C7 /* Settings.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		38EE4D24C0181CFF5585A4BD /* Main.storyboard */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		6354A987428179AB4947652B /* AppDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		7587BB0A1B0C7E2900A0A4B3 /* RACHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RACHelpers.swift; sourceTree = "<group>"; };
 		758DA3FD1B08AA9900102337 /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
 		758DA41D1B096BCA00102337 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		75B34B161B0BEFA6000FFAA9 /* ReactiveCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveCocoa.framework; path = Carthage/Build/iOS/ReactiveCocoa.framework; sourceTree = "<group>"; };
@@ -115,6 +117,7 @@
 				3562F7D8CA0683237A44A018 /* ViewModels */,
 				B8F0B56E6E47F1A3E49D64FF /* Controllers */,
 				F2648A229CCAB494ADD20F53 /* Views */,
+				7587BB091B0C7DD300A0A4B3 /* Helpers */,
 				21645937A08AB9CEBCBA4E71 /* Resources */,
 			);
 			path = "ios8-swift-rac";
@@ -155,6 +158,14 @@
 				BC50FE5CDF528F7AE23693B7 /* Info.plist */,
 			);
 			path = "Other-Sources";
+			sourceTree = "<group>";
+		};
+		7587BB091B0C7DD300A0A4B3 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				7587BB0A1B0C7E2900A0A4B3 /* RACHelpers.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		7825F28DEC0DABAB5C74A129 /* Nibs */ = {
@@ -373,6 +384,7 @@
 				E9EF568899FEBDBD03518669 /* Main.storyboard in Sources */,
 				758DA3FE1B08AA9900102337 /* ChangePasswordViewController.swift in Sources */,
 				758DA41E1B096BCA00102337 /* User.swift in Sources */,
+				7587BB0B1B0C7E2900A0A4B3 /* RACHelpers.swift in Sources */,
 				ECE5EE16B9C2DA554C9F2278 /* LaunchScreen.xib in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
