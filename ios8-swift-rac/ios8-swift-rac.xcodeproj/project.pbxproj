@@ -9,10 +9,12 @@
 /* Begin PBXBuildFile section */
 		724B012973863C9E06FB1FAC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C2741BA80923F18FB3A0541F /* Images.xcassets */; };
 		751BCB374A984A2B12323BD0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6354A987428179AB4947652B /* AppDelegate.swift */; };
+		754D740D1B0C9573007C107F /* ReactiveCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 754D740C1B0C9573007C107F /* ReactiveCocoa.framework */; };
+		754D740F1B0CB4D3007C107F /* Box.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 754D740E1B0CB4D3007C107F /* Box.framework */; };
+		754D74111B0CB4F2007C107F /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 754D74101B0CB4F2007C107F /* Result.framework */; };
 		7587BB0B1B0C7E2900A0A4B3 /* RACHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7587BB0A1B0C7E2900A0A4B3 /* RACHelpers.swift */; };
 		758DA3FE1B08AA9900102337 /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758DA3FD1B08AA9900102337 /* ChangePasswordViewController.swift */; };
 		758DA41E1B096BCA00102337 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758DA41D1B096BCA00102337 /* User.swift */; };
-		75B34B171B0BEFA6000FFAA9 /* ReactiveCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75B34B161B0BEFA6000FFAA9 /* ReactiveCocoa.framework */; };
 		8CEA42556D7F4284AAA1C8BD /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 29CA5B6F355386EAAC01F4C7 /* Settings.bundle */; };
 		E9EF568899FEBDBD03518669 /* Main.storyboard in Sources */ = {isa = PBXBuildFile; fileRef = 38EE4D24C0181CFF5585A4BD /* Main.storyboard */; };
 		ECE5EE16B9C2DA554C9F2278 /* LaunchScreen.xib in Sources */ = {isa = PBXBuildFile; fileRef = D942764F2ACD399402166429 /* LaunchScreen.xib */; };
@@ -33,10 +35,12 @@
 		29CA5B6F355386EAAC01F4C7 /* Settings.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		38EE4D24C0181CFF5585A4BD /* Main.storyboard */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		6354A987428179AB4947652B /* AppDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		754D740C1B0C9573007C107F /* ReactiveCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveCocoa.framework; path = Carthage/Build/iOS/ReactiveCocoa.framework; sourceTree = "<group>"; };
+		754D740E1B0CB4D3007C107F /* Box.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Box.framework; path = Carthage/Build/iOS/Box.framework; sourceTree = "<group>"; };
+		754D74101B0CB4F2007C107F /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Result.framework; path = Carthage/Build/iOS/Result.framework; sourceTree = "<group>"; };
 		7587BB0A1B0C7E2900A0A4B3 /* RACHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RACHelpers.swift; sourceTree = "<group>"; };
 		758DA3FD1B08AA9900102337 /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
 		758DA41D1B096BCA00102337 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		75B34B161B0BEFA6000FFAA9 /* ReactiveCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveCocoa.framework; path = Carthage/Build/iOS/ReactiveCocoa.framework; sourceTree = "<group>"; };
 		B7B4AAB661983DBF6441E39A /* ios8-swift-rac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ios8-swift-rac.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC50FE5CDF528F7AE23693B7 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C2741BA80923F18FB3A0541F /* Images.xcassets */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -51,7 +55,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				75B34B171B0BEFA6000FFAA9 /* ReactiveCocoa.framework in Frameworks */,
+				754D74111B0CB4F2007C107F /* Result.framework in Frameworks */,
+				754D740F1B0CB4D3007C107F /* Box.framework in Frameworks */,
+				754D740D1B0C9573007C107F /* ReactiveCocoa.framework in Frameworks */,
 				FD89444C3B0842D780D15526 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -88,6 +94,9 @@
 		335BEB25FAA2DAD968B8FC70 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				754D74101B0CB4F2007C107F /* Result.framework */,
+				754D740E1B0CB4D3007C107F /* Box.framework */,
+				754D740C1B0C9573007C107F /* ReactiveCocoa.framework */,
 				5D5144769B98404ED0F6FEF2 /* iOS */,
 			);
 			name = Frameworks;
@@ -133,7 +142,6 @@
 		5D5144769B98404ED0F6FEF2 /* iOS */ = {
 			isa = PBXGroup;
 			children = (
-				75B34B161B0BEFA6000FFAA9 /* ReactiveCocoa.framework */,
 				DF19457C36F15A41B7931E3E /* Foundation.framework */,
 			);
 			name = iOS;
@@ -351,6 +359,8 @@
 			);
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/ReactiveCocoa.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Box.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Result.framework",
 			);
 			name = Carthage;
 			outputPaths = (
