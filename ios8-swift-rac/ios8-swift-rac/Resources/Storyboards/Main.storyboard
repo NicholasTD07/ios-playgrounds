@@ -61,7 +61,7 @@
                                                         <constraint firstAttribute="width" constant="155" id="xf2-ck-KiV"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
+                                                    <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                                 </textField>
                                             </subviews>
                                             <constraints>
@@ -71,6 +71,33 @@
                                                 <constraint firstItem="eAD-uI-Av7" firstAttribute="leading" secondItem="VMl-Yp-04U" secondAttribute="leadingMargin" id="i9j-cP-t7I"/>
                                                 <constraint firstItem="JVT-jQ-9or" firstAttribute="top" secondItem="VMl-Yp-04U" secondAttribute="topMargin" constant="-8" id="prh-yL-Jjb"/>
                                                 <constraint firstAttribute="centerY" secondItem="eAD-uI-Av7" secondAttribute="centerY" id="vFm-cA-Paa"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="8eq-l0-jAb">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8eq-l0-jAb" id="x2x-30-nc5">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current Password Input" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L7B-sc-bBH">
+                                                    <rect key="frame" x="8" y="11" width="182" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello, World" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oQl-fA-Bk0">
+                                                    <rect key="frame" x="498" y="11" width="94" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="L7B-sc-bBH" firstAttribute="leading" secondItem="x2x-30-nc5" secondAttribute="leadingMargin" id="B9v-sn-Izn"/>
+                                                <constraint firstAttribute="centerY" secondItem="oQl-fA-Bk0" secondAttribute="centerY" id="WaM-Kc-V8C"/>
+                                                <constraint firstAttribute="centerY" secondItem="L7B-sc-bBH" secondAttribute="centerY" id="etB-lD-uJi"/>
+                                                <constraint firstItem="oQl-fA-Bk0" firstAttribute="trailing" secondItem="x2x-30-nc5" secondAttribute="trailingMargin" id="xRn-1W-Q1T"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -149,6 +176,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="confirmPasswordTextField" destination="mVq-03-vJp" id="ndk-zU-2a9"/>
+                        <outlet property="currentPasswordInputLabel" destination="oQl-fA-Bk0" id="kLG-VX-76m"/>
                         <outlet property="currentPasswordLabel" destination="htu-4g-fdI" id="PUA-fW-IqW"/>
                         <outlet property="currentPasswordTextField" destination="JVT-jQ-9or" id="XVc-WQ-uO7"/>
                         <outlet property="newPasswordTextField" destination="M5J-m5-eQs" id="LJe-Dj-dbP"/>

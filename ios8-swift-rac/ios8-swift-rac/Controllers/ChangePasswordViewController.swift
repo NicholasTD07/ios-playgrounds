@@ -15,6 +15,7 @@ class ChangePasswordViewController: UITableViewController {
     @IBOutlet weak var newPasswordTextField: UITextField!
     @IBOutlet weak var confirmPasswordTextField: UITextField!
 
+    @IBOutlet weak var currentPasswordInputLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -22,6 +23,8 @@ class ChangePasswordViewController: UITableViewController {
         [currentPasswordTextField, newPasswordTextField, confirmPasswordTextField].map {
             $0.rac_textSignal().subscribeNext(printText)
         }
+
+        currentPasswordTextField.rac_textSignal() ~> RAC(self.currentPasswordInputLabel, "text")
     }
 
 }
