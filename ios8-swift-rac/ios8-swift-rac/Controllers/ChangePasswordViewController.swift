@@ -18,6 +18,10 @@ class ChangePasswordViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        var printText = { (text: AnyObject!) in println(text) }
+        [currentPasswordTextField, newPasswordTextField, confirmPasswordTextField].map {
+            $0.rac_textSignal().subscribeNext(printText)
+        }
     }
+
 }
