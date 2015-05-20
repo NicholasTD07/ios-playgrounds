@@ -57,9 +57,6 @@
                                                 </label>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="current password" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JVT-jQ-9or">
                                                     <rect key="frame" x="437" y="0.0" width="155" height="43"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="155" id="xf2-ck-KiV"/>
-                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                                 </textField>
@@ -67,11 +64,24 @@
                                             <constraints>
                                                 <constraint firstAttribute="centerY" secondItem="JVT-jQ-9or" secondAttribute="centerY" constant="-0.5" id="8fZ-3N-AiA"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="JVT-jQ-9or" secondAttribute="bottom" constant="-8" id="Ga6-Ch-Ibl"/>
+                                                <constraint firstItem="JVT-jQ-9or" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="eAD-uI-Av7" secondAttribute="trailing" constant="8" symbolic="YES" id="KWn-4N-9VZ">
+                                                    <variation key="widthClass=compact" constant="8" symbolic="YES"/>
+                                                </constraint>
                                                 <constraint firstItem="JVT-jQ-9or" firstAttribute="trailing" secondItem="VMl-Yp-04U" secondAttribute="trailingMargin" id="V4h-Lu-oyg"/>
                                                 <constraint firstItem="eAD-uI-Av7" firstAttribute="leading" secondItem="VMl-Yp-04U" secondAttribute="leadingMargin" id="i9j-cP-t7I"/>
                                                 <constraint firstItem="JVT-jQ-9or" firstAttribute="top" secondItem="VMl-Yp-04U" secondAttribute="topMargin" constant="-8" id="prh-yL-Jjb"/>
                                                 <constraint firstAttribute="centerY" secondItem="eAD-uI-Av7" secondAttribute="centerY" id="vFm-cA-Paa"/>
                                             </constraints>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="KWn-4N-9VZ"/>
+                                                </mask>
+                                            </variation>
+                                            <variation key="widthClass=compact">
+                                                <mask key="constraints">
+                                                    <include reference="KWn-4N-9VZ"/>
+                                                </mask>
+                                            </variation>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="8eq-l0-jAb">
@@ -85,6 +95,9 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
+                                                    <variation key="widthClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="8" y="11" width="282" height="21"/>
+                                                    </variation>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello, World" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oQl-fA-Bk0">
                                                     <rect key="frame" x="498" y="11" width="94" height="21"/>
@@ -97,8 +110,19 @@
                                                 <constraint firstItem="L7B-sc-bBH" firstAttribute="leading" secondItem="x2x-30-nc5" secondAttribute="leadingMargin" id="B9v-sn-Izn"/>
                                                 <constraint firstAttribute="centerY" secondItem="oQl-fA-Bk0" secondAttribute="centerY" id="WaM-Kc-V8C"/>
                                                 <constraint firstAttribute="centerY" secondItem="L7B-sc-bBH" secondAttribute="centerY" id="etB-lD-uJi"/>
+                                                <constraint firstItem="oQl-fA-Bk0" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="L7B-sc-bBH" secondAttribute="trailing" constant="8" symbolic="YES" id="f4e-Hk-BAa"/>
                                                 <constraint firstItem="oQl-fA-Bk0" firstAttribute="trailing" secondItem="x2x-30-nc5" secondAttribute="trailingMargin" id="xRn-1W-Q1T"/>
                                             </constraints>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="f4e-Hk-BAa"/>
+                                                </mask>
+                                            </variation>
+                                            <variation key="widthClass=compact">
+                                                <mask key="constraints">
+                                                    <include reference="f4e-Hk-BAa"/>
+                                                </mask>
+                                            </variation>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="goy-U8-Mhn">
@@ -115,14 +139,14 @@
                                                 </label>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="new password" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="M5J-m5-eQs">
                                                     <rect key="frame" x="437" y="0.0" width="155" height="43"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="155" id="Va6-0p-mkB"/>
-                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="M5J-m5-eQs" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="hHn-kd-LHN" secondAttribute="trailing" constant="170" id="3B0-jo-nod">
+                                                    <variation key="widthClass=compact" constant="8" symbolic="YES"/>
+                                                </constraint>
                                                 <constraint firstAttribute="centerY" secondItem="hHn-kd-LHN" secondAttribute="centerY" id="HqE-Df-ZTT"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="M5J-m5-eQs" secondAttribute="bottom" constant="-8" id="NLm-ZM-U3i"/>
                                                 <constraint firstItem="hHn-kd-LHN" firstAttribute="leading" secondItem="iOj-U7-ZCS" secondAttribute="leadingMargin" id="aug-f2-9J0"/>
@@ -130,6 +154,16 @@
                                                 <constraint firstItem="M5J-m5-eQs" firstAttribute="trailing" secondItem="iOj-U7-ZCS" secondAttribute="trailingMargin" id="q9e-bT-4kM"/>
                                                 <constraint firstAttribute="centerY" secondItem="M5J-m5-eQs" secondAttribute="centerY" constant="-0.5" id="ras-Zt-REw"/>
                                             </constraints>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="3B0-jo-nod"/>
+                                                </mask>
+                                            </variation>
+                                            <variation key="widthClass=compact">
+                                                <mask key="constraints">
+                                                    <include reference="3B0-jo-nod"/>
+                                                </mask>
+                                            </variation>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="HXQ-NZ-lBH">
@@ -146,9 +180,6 @@
                                                 </label>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="confirm password" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mVq-03-vJp">
                                                     <rect key="frame" x="437" y="0.0" width="155" height="43"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="155" id="gBg-tX-aHd"/>
-                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
@@ -158,9 +189,22 @@
                                                 <constraint firstItem="Iw9-Mv-jF1" firstAttribute="leading" secondItem="XWI-cn-0Ik" secondAttribute="leadingMargin" id="4t7-1I-thW"/>
                                                 <constraint firstAttribute="centerY" secondItem="Iw9-Mv-jF1" secondAttribute="centerY" id="EyH-jr-YFs"/>
                                                 <constraint firstItem="mVq-03-vJp" firstAttribute="top" secondItem="XWI-cn-0Ik" secondAttribute="topMargin" constant="-8" id="L2Y-pT-Ab9"/>
+                                                <constraint firstItem="mVq-03-vJp" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Iw9-Mv-jF1" secondAttribute="trailing" constant="122" id="Uzk-0F-xN8">
+                                                    <variation key="widthClass=compact" constant="8" symbolic="YES"/>
+                                                </constraint>
                                                 <constraint firstAttribute="bottomMargin" secondItem="mVq-03-vJp" secondAttribute="bottom" constant="-8" id="doX-lw-FwD"/>
                                                 <constraint firstItem="mVq-03-vJp" firstAttribute="trailing" secondItem="XWI-cn-0Ik" secondAttribute="trailingMargin" id="k2k-Da-Eo8"/>
                                             </constraints>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="Uzk-0F-xN8"/>
+                                                </mask>
+                                            </variation>
+                                            <variation key="widthClass=compact">
+                                                <mask key="constraints">
+                                                    <include reference="Uzk-0F-xN8"/>
+                                                </mask>
+                                            </variation>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </cells>
@@ -184,7 +228,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7pG-aW-KWa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2681" y="444"/>
+            <point key="canvasLocation" x="2680.5" y="444"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="fCa-M7-PCu">
