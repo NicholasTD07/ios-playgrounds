@@ -34,12 +34,13 @@ class ChangePasswordViewController: UITableViewController {
     }
 
     func saveButtonEnablingSignal() {
-        let validPasswordSignal = currentPasswordTextField
-            .rac_textSignal()
+        let validPasswordSignal = RACSignal.combineLatest(
+            [currentPasswordTextField.rac_textSignal(), RACObserve(user, "password")])
             .mapAs {
-                (text: NSString) -> NSNumber in
-                return text.isEqualToString(self.user.password)
-            }
+                (tuple: RACTuple) -> NSNumber in
+                let texts = tuple.allObjects() as! [NSString]
+                return texts[0].isEqual(texts[1])
+        }
         validPasswordSignal.name = "ValidPasswordSignal"
 
         let newPasswordFieldsHaveInputs = RACSignal.combineLatest(
