@@ -40,11 +40,11 @@
 		754D740C1B0C9573007C107F /* ReactiveCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveCocoa.framework; path = Carthage/Build/iOS/ReactiveCocoa.framework; sourceTree = "<group>"; };
 		754D740E1B0CB4D3007C107F /* Box.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Box.framework; path = Carthage/Build/iOS/Box.framework; sourceTree = "<group>"; };
 		754D74101B0CB4F2007C107F /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Result.framework; path = Carthage/Build/iOS/Result.framework; sourceTree = "<group>"; };
+		7572D4301B0DB8A600F95E95 /* ios8-swift-rac.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = "ios8-swift-rac.playground"; sourceTree = "<group>"; };
 		7587BB0A1B0C7E2900A0A4B3 /* RACHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RACHelpers.swift; sourceTree = "<group>"; };
 		758DA3FD1B08AA9900102337 /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
 		758DA41D1B096BCA00102337 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		75E1CC031B0D6F8000687576 /* RACSignal+TypedClosures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RACSignal+TypedClosures.swift"; sourceTree = "<group>"; };
-		75FAD9771B0D3F8F0084E9D6 /* io8-swift-rac.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = "io8-swift-rac.playground"; sourceTree = "<group>"; };
 		75FAD9781B0D47930084E9D6 /* ChangePasswordViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewModel.swift; sourceTree = "<group>"; };
 		B7B4AAB661983DBF6441E39A /* ios8-swift-rac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ios8-swift-rac.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC50FE5CDF528F7AE23693B7 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -157,7 +157,7 @@
 		60C47D3FB935AD88B452394A = {
 			isa = PBXGroup;
 			children = (
-				75FAD9771B0D3F8F0084E9D6 /* io8-swift-rac.playground */,
+				7572D4301B0DB8A600F95E95 /* ios8-swift-rac.playground */,
 				4470C3CBF3000125E2D95A1F /* ios8-swift-rac */,
 				BE5D3DB94ADD8707D7005AE7 /* Tests */,
 				335BEB25FAA2DAD968B8FC70 /* Frameworks */,

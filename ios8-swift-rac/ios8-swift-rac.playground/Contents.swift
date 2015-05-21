@@ -20,4 +20,4 @@ func mapAs<T, U>(input: T, mapClosure: (T) -> U) -> U {
     return mapClosure(input)
 }
 
-let count = mapAs("TaDa") { count($0) }
+let length = mapAs("TaDa") { count($0) }
