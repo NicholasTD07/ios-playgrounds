@@ -6,8 +6,6 @@
 //  Copyright (c) 2015 nickTD. All rights reserved.
 //
 
-import UIKit
-
 struct User {
     var password: String
 }
