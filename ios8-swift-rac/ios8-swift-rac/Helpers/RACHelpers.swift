@@ -9,14 +9,14 @@
 import Foundation
 import ReactiveCocoa
 
-public typealias RACType = (RACSignal) -> Void
-public func RAC(target: NSObject!, keypath: String, nilValue: AnyObject? = nil) -> RACType {
+public typealias RACSignalBinder = (RACSignal) -> Void
+public func RAC(target: NSObject!, keypath: String, nilValue: AnyObject? = nil) -> RACSignalBinder {
     return { (signal: RACSignal) in
         signal.setKeyPath(keypath, onObject: target, nilValue: nilValue)
     }
 }
 
 infix operator ~> {}
-public func ~> (signal: RACSignal, rac: RACType) {
-    rac(signal)
+public func ~> (signal: RACSignal, racBinder: RACSignalBinder) {
+    racBinder(signal)
 }
