@@ -10,9 +10,9 @@ import Foundation
 import ReactiveCocoa
 
 extension RACSignal {
-    public func filterAs<T: AnyObject>(mapClosure: (T) -> Bool) -> RACSignal {
+    public func filterAs<T: AnyObject>(filterClosure: (T) -> Bool) -> RACSignal {
         return self.filter({ (input: AnyObject!) -> Bool in
-            return mapClosure(input as! T)
+            return filterClosure(input as! T)
         })
     }
 }
