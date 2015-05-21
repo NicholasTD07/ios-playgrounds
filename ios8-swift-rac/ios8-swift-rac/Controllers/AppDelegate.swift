@@ -11,13 +11,4 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
-
-    func applicationDidFinishLaunching(application: UIApplication) {
-        if let nvc = self.window!.rootViewController as? UINavigationController,
-            let vc = nvc.topViewController as? ChangePasswordViewController {
-                let user = User(password: "password")
-                let changePasswordViewModel = ChangePasswordViewModel(user: user)
-                vc.viewModel = changePasswordViewModel
-        }
-    }
 }
