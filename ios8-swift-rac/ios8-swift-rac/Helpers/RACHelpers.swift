@@ -10,6 +10,7 @@ import Foundation
 import ReactiveCocoa
 
 public typealias RACSignalBinder = (RACSignal) -> Void
+
 public func RAC(target: NSObject!, keypath: String, nilValue: AnyObject? = nil) -> RACSignalBinder {
     return { (signal: RACSignal) in
         signal.setKeyPath(keypath, onObject: target, nilValue: nilValue)
