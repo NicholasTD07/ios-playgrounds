@@ -15,4 +15,14 @@ extension RACSignal {
             return filterClosure(input as! T)
         })
     }
+
+    /// `T` and `U` must confirm to `AnyObject` protocol
+    /// (basically `NSObject` subclasses)
+    /// NO SWIFT CLASSES, e.g. Bool
+    func mapAs<T: AnyObject, U: AnyObject>(mapClosure:(T) -> U) -> RACSignal {
+        return self.map {
+            (input: AnyObject!) -> AnyObject! in
+            return mapClosure(input as! T)
+        }
+    }
 }
