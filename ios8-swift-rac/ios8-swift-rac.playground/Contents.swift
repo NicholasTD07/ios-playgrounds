@@ -22,7 +22,7 @@ func mapAs<T, U>(input: T, mapClosure: (T) -> U) -> U {
 
 let length = mapAs("TaDa") { count($0) }
 
-let oneToTen = [Int](0..<10)
+let oneToTen = [Int](1...10)
 let total = oneToTen.reduce(0) { $0 + $1 }
 total
 
@@ -31,3 +31,16 @@ total
 let falsy: Bool = false
 let nsfalsy: NSNumber = falsy
 println(nsfalsy.boolValue)
+
+func printNSNumber(number: NSNumber) {
+    println(number)
+}
+
+let sum = [Int](1...200)
+    .filter { $0 <= 100}
+    .reduce(0) { $0 + $1 }
+
+printNSNumber([Int](1...200)
+    .map { $0 % 2 == 0 }
+    .reduce(true) { $0 && $1 }
+)
