@@ -17,10 +17,12 @@ class ChangePasswordViewController: UITableViewController {
     @IBOutlet weak var currentPasswordInputLabel: UILabel!
     @IBOutlet weak var saveButton: UIBarButtonItem!
 
-    var user = User(password: "password")
+    var user: User!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        user = User(password: "weak")
 
         setUpSignals()
     }
