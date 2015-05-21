@@ -38,6 +38,9 @@ class ChangePasswordViewController: UITableViewController {
             ).mapAs { (tuple: RACTuple) -> NSNumber in
                 let texts = tuple.allObjects() as! [NSString]
                 let haveInputs = texts.map { $0.length > 0 }
+                // TODO: WAT?!
+                // Bool is not convertible to NSNumber
+//                return haveInputs.reduce(true) { $0 && $1 }
                 let result = haveInputs.reduce(true) { $0 && $1 }
                 return result
             }
