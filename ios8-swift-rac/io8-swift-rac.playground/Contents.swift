@@ -15,3 +15,9 @@ func t() -> FuncAdder {
 let d = t()
 d(1, 2)
 // d(first: 1, second: 2) // NOOOO, cant do.
+
+func mapAs<T, U>(input: T, mapClosure: (T) -> U) -> U {
+    return mapClosure(input)
+}
+
+let count = mapAs("TaDa") { count($0) }
