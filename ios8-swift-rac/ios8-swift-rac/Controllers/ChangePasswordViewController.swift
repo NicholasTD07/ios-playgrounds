@@ -19,6 +19,22 @@ class ChangePasswordViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        currentPasswordTextField
+            .rac_textSignal()
+            .filter
+            {
+                (input: AnyObject!) -> Bool in
+                let inputAsNSString = input as! NSString
+                return inputAsNSString.length > 3
+            }
+            .map {
+                (input: AnyObject!) -> AnyObject! in
+                let inputAsString = input as! String
+                return ("log: " + inputAsString) as NSString
+            }
+            .subscribeNext { (input: AnyObject!) -> Void in
+                println(input)
+            }
     }
 
 }
