@@ -15,6 +15,9 @@ class ChangePasswordViewController: UITableViewController {
     @IBOutlet weak var newPasswordTextField: UITextField!
     @IBOutlet weak var confirmPasswordTextField: UITextField!
     @IBOutlet weak var currentPasswordInputLabel: UILabel!
+    @IBOutlet weak var saveButton: UIBarButtonItem!
+
+    var user = User(password: "password")
 
     override func viewDidLoad() {
         super.viewDidLoad()
