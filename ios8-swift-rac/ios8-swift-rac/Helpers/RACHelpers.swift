@@ -20,3 +20,7 @@ infix operator ~> {}
 public func ~> (signal: RACSignal, racBinder: RACSignalBinder) {
     racBinder(signal)
 }
+
+public func RACObserve(target: NSObject!, keyPath: String!) -> RACSignal  {
+    return target.rac_valuesForKeyPath(keyPath, observer: target)
+}
