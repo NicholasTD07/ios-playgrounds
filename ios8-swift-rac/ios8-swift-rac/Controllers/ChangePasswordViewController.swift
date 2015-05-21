@@ -22,21 +22,38 @@ class ChangePasswordViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        currentPasswordTextField
+        setUpSignals()
+    }
+
+    func setUpSignals() {
+        let validPasswordSignal = currentPasswordTextField
             .rac_textSignal()
-            .filterAs
-            {
-                (input: NSString) -> Bool in
-                return input.length > 3
-            }
             .mapAs {
-                (text: NSString) -> NSString in
-                return ("log: " + (text as String))
+                (text: NSString) -> NSNumber in
+                return text.isEqualToString(self.user.password)
             }
-            .subscribeNextAs {
-                (input: String) -> () in
-                println(input)
-        }
+
+        let newPasswordFieldsHaveInputs = RACSignal.combineLatest(
+            [newPasswordTextField, confirmPasswordTextField].map { $0.rac_textSignal() }
+            ).mapAs { (tuple: RACTuple) -> NSNumber in
+                let texts = tuple.allObjects() as! [NSString]
+                let haveInputs = texts.map { $0.length > 0 }
+                let result = haveInputs.reduce(true) { $0 && $1 }
+                return result
+            }
+
+        let matchingNewPasswordsSignal = confirmPasswordTextField
+            .rac_textSignal()
+            .mapAs {
+                (password: NSString) -> NSNumber in
+                println(password)
+                return password.isEqualToString(self.newPasswordTextField.text)
+            }
+
+        let canChangePasswordSignal = RACSignal.combineLatest(
+            [validPasswordSignal, newPasswordFieldsHaveInputs, matchingNewPasswordsSignal]).and()
+
+        canChangePasswordSignal ~> RAC(self.saveButton, "enabled")
     }
 
 }
