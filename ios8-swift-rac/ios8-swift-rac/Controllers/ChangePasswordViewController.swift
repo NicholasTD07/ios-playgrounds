@@ -28,6 +28,10 @@ class ChangePasswordViewController: UITableViewController {
     }
 
     func setUpSignals() {
+        RACObserve(user, "password") ~> RAC(currentPasswordLabel, "text")
+        currentPasswordTextField.rac_textSignal() ~> RAC(currentPasswordInputLabel, "text")
+        saveButtonEnablingSignal()
+
         let validPasswordSignal = currentPasswordTextField
             .rac_textSignal()
             .mapAs {
