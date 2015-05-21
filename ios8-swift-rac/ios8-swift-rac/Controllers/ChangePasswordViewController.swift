@@ -67,6 +67,12 @@ class ChangePasswordViewController: UITableViewController {
             [validPasswordSignal, newPasswordFieldsHaveInputs, matchingNewPasswordsSignal]).and()
         canChangePasswordSignal.name = "CanChangePassword"
 
-        canChangePasswordSignal ~> RAC(self.saveButton, "enabled")
+        saveButton.rac_command = RACCommand(enabled: canChangePasswordSignal) {
+            (_: AnyObject!) -> RACSignal in
+            println("User's password was: " + self.user.password)
+            self.user.password = self.confirmPasswordTextField.text
+            println("Changed user's password to: " + self.user.password)
+            return RACSignal.empty()
+        }
     }
 }
