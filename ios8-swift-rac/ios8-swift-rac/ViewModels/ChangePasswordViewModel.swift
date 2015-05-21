@@ -14,19 +14,7 @@ class ChangePasswordViewModel: NSObject {
     var newPasswordInput: String = "" { didSet { println("ViewModel: " + newPasswordInput) } }
     var confirmPasswordInput: String = "" { didSet { println("ViewModel: " + confirmPasswordInput) } }
 
-    init(user: User) {
-        self.user = user
     }
 
-    var userPassword: String {
-        return user.password
-    }
-
-    var currentPasswordMatches: Bool {
-        return currentPasswordInput == userPassword
-    }
-
-    var newPasswordConfirmed: Bool {
-        return newPasswordInput == confirmPasswordInput
     }
 }
