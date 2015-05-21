@@ -27,9 +27,13 @@ class ChangePasswordViewController: UITableViewController {
                 return input.length > 3
             }
             .mapAs {
-                (text: NSString) -> NSNumber in
-                return text.length > 3
+                (text: NSString) -> NSString in
+                return ("log: " + (text as String))
             }
+            .subscribeNextAs {
+                (input: String) -> () in
+                println(input)
+        }
     }
 
 }
