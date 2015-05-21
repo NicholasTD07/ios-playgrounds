@@ -21,11 +21,10 @@ class ChangePasswordViewController: UITableViewController {
 
         currentPasswordTextField
             .rac_textSignal()
-            .filter
+            .filterAs
             {
-                (input: AnyObject!) -> Bool in
-                let inputAsNSString = input as! NSString
-                return inputAsNSString.length > 3
+                (input: NSString) -> Bool in
+                return input.length > 3
             }
             .map {
                 (input: AnyObject!) -> AnyObject! in
