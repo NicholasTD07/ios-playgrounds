@@ -31,13 +31,16 @@ class ChangePasswordViewController: UITableViewController {
         RACObserve(user, "password") ~> RAC(currentPasswordLabel, "text")
         currentPasswordTextField.rac_textSignal() ~> RAC(currentPasswordInputLabel, "text")
         saveButtonEnablingSignal()
+    }
 
+    func saveButtonEnablingSignal() {
         let validPasswordSignal = currentPasswordTextField
             .rac_textSignal()
             .mapAs {
                 (text: NSString) -> NSNumber in
                 return text.isEqualToString(self.user.password)
             }
+        validPasswordSignal.name = "ValidPasswordSignal"
 
         let newPasswordFieldsHaveInputs = RACSignal.combineLatest(
             [newPasswordTextField, confirmPasswordTextField].map { $0.rac_textSignal() }
@@ -50,19 +53,20 @@ class ChangePasswordViewController: UITableViewController {
                 let result = haveInputs.reduce(true) { $0 && $1 }
                 return result
             }
+        newPasswordFieldsHaveInputs.name = "NewPasswordFieldsHaveInputs"
 
         let matchingNewPasswordsSignal = confirmPasswordTextField
             .rac_textSignal()
             .mapAs {
                 (password: NSString) -> NSNumber in
-                println(password)
                 return password.isEqualToString(self.newPasswordTextField.text)
             }
+        matchingNewPasswordsSignal.name = "MatchingNewPasswords"
 
         let canChangePasswordSignal = RACSignal.combineLatest(
             [validPasswordSignal, newPasswordFieldsHaveInputs, matchingNewPasswordsSignal]).and()
+        canChangePasswordSignal.name = "CanChangePassword"
 
         canChangePasswordSignal ~> RAC(self.saveButton, "enabled")
     }
-
 }
