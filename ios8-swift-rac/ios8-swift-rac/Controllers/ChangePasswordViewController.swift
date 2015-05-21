@@ -26,13 +26,9 @@ class ChangePasswordViewController: UITableViewController {
                 (input: NSString) -> Bool in
                 return input.length > 3
             }
-            .map {
-                (input: AnyObject!) -> AnyObject! in
-                let inputAsString = input as! String
-                return ("log: " + inputAsString) as NSString
-            }
-            .subscribeNext { (input: AnyObject!) -> Void in
-                println(input)
+            .mapAs {
+                (text: NSString) -> NSNumber in
+                return text.length > 3
             }
     }
 
