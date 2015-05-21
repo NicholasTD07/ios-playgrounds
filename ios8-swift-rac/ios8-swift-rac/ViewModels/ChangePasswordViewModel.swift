@@ -7,26 +7,73 @@
 //
 
 import Foundation
+import ReactiveCocoa
 
 class ChangePasswordViewModel: NSObject {
     let user: User
-    var currentPasswordInput: String = "" { didSet { println("ViewModel: " + currentPasswordInput) } }
-    var newPasswordInput: String = "" { didSet { println("ViewModel: " + newPasswordInput) } }
-    var confirmPasswordInput: String = "" { didSet { println("ViewModel: " + confirmPasswordInput) } }
+    var currentPasswordInput: String = "" { didSet { println("ViewModel - currentPassword: " + currentPasswordInput) } }
+    var newPasswordInput: String = "" { didSet { println("ViewModel - newPassword: " + newPasswordInput) } }
+    var confirmPasswordInput: String = "" { didSet { println("ViewModel - confirmPassword: " + confirmPasswordInput) } }
 
     init(user: User) {
         self.user = user
     }
 
-    var userPassword: String {
-        return user.password
+    // MARK: signals
+    // TODO: use lazy properties
+    var currentPasswordValidSignal: RACSignal {
+        return RACSignal
+            .combineLatest([RACObserve(self.user, "password"), signalOf("currentPasswordInput")])
+            .mapAs {
+                (tuple: RACTuple) -> NSNumber in
+                let userPassword = tuple.first as! String
+                let inputPassword = tuple.second as! String
+                return inputPassword == userPassword
+            }
     }
 
-    var currentPasswordMatches: Bool {
-        return currentPasswordInput == userPassword
+    var newPasswrodsNotEmpty: RACSignal {
+        return RACSignal
+            .combineLatest(["newPasswordInput", "confirmPasswordInput"].map(signalOf))
+            .mapAs {
+                (tuple: RACTuple) -> NSNumber in
+                let newPassword = tuple.first as! String
+                let confirmPassword = tuple.second as! String
+                return !newPassword.isEmpty && !confirmPassword.isEmpty
+            }
     }
 
-    var newPasswordConfirmed: Bool {
-        return newPasswordInput == confirmPasswordInput
+    var matchingNewPasswordsSignal: RACSignal {
+        return RACSignal
+            .combineLatest(["newPasswordInput", "confirmPasswordInput"].map(signalOf))
+            .mapAs {
+                (tuple: RACTuple) -> NSNumber in
+                let newPassword = tuple.first as! String
+                let confirmPassword = tuple.second as! String
+                return confirmPassword == newPassword
+            }
+    }
+
+    var canSavePasswordSignal: RACSignal {
+        return RACSignal
+            .combineLatest([
+                currentPasswordValidSignal,
+                newPasswrodsNotEmpty,
+                matchingNewPasswordsSignal
+            ])
+            .and()
+    }
+
+    var savePasswordCommand: RACCommand {
+        return RACCommand(enabled: canSavePasswordSignal) {
+            (_) -> RACSignal in
+            self.user.password = self.confirmPasswordInput
+            return RACSignal.empty()
+        }
+    }
+
+    // MARK: private
+    private func signalOf(keyPath: String) -> RACSignal {
+        return RACObserve(self, keyPath)
     }
 }
