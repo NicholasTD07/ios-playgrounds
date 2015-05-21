@@ -6,6 +6,12 @@
 //  Copyright (c) 2015 nickTD. All rights reserved.
 //
 
-struct User {
-    var password: String
+import Foundation
+
+class User: NSObject {
+    dynamic var password: String
+
+    init(password: String) {
+        self.password = password
+    }
 }

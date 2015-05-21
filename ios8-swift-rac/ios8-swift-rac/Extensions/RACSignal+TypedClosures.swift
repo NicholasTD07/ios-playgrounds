@@ -19,10 +19,16 @@ extension RACSignal {
     /// `T` and `U` must confirm to `AnyObject` protocol
     /// (basically `NSObject` subclasses)
     /// NO SWIFT CLASSES, e.g. Bool
-    func mapAs<T: AnyObject, U: AnyObject>(mapClosure:(T) -> U) -> RACSignal {
+    public func mapAs<T: AnyObject, U: AnyObject>(mapClosure:(T) -> U) -> RACSignal {
         return self.map {
             (input: AnyObject!) -> AnyObject! in
             return mapClosure(input as! T)
         }
+    }
+
+    public func subscribeNextAs<T>(nextClosure: (T) -> ()) -> RACDisposable {
+        return self.subscribeNext({ (input: AnyObject!) -> Void in
+            nextClosure(input as! T)
+        })
     }
 }

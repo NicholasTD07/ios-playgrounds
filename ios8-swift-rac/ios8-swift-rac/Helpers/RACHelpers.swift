@@ -10,6 +10,7 @@ import Foundation
 import ReactiveCocoa
 
 public typealias RACSignalBinder = (RACSignal) -> Void
+
 public func RAC(target: NSObject!, keypath: String, nilValue: AnyObject? = nil) -> RACSignalBinder {
     return { (signal: RACSignal) in
         signal.setKeyPath(keypath, onObject: target, nilValue: nilValue)
@@ -19,4 +20,8 @@ public func RAC(target: NSObject!, keypath: String, nilValue: AnyObject? = nil) 
 infix operator ~> {}
 public func ~> (signal: RACSignal, racBinder: RACSignalBinder) {
     racBinder(signal)
+}
+
+public func RACObserve(target: NSObject!, keyPath: String!) -> RACSignal  {
+    return target.rac_valuesForKeyPath(keyPath, observer: target)
 }
