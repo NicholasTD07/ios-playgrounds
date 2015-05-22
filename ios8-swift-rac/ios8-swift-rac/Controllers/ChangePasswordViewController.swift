@@ -36,5 +36,13 @@ class ChangePasswordViewController: UITableViewController {
         confirmPasswordTextField.rac_textSignal() ~> RAC(viewModel, "confirmPasswordInput")
 
         saveButton.rac_command = viewModel.savePasswordCommand
+        saveButton.rac_command.executionSignals
+            .subscribeNext { [unowned self] (_) in
+                self.currentPasswordTextField.text = ""
+                self.currentPasswordInputLabel.text = ""
+                self.newPasswordTextField.text = ""
+                self.confirmPasswordTextField.text = ""
+            }
+
     }
 }
