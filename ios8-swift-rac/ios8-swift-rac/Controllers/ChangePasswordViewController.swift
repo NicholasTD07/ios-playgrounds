@@ -22,11 +22,17 @@ class ChangePasswordViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        registerUserPassword()
+
         currentPasswordTextField.rac_textSignal() ~> RAC(currentPasswordInputLabel, "text")
 
-        viewModel = ChangePasswordViewModel(user: User(password: "fox"))
+        viewModel = ChangePasswordViewModel(user: User())
 
         bindWithViewModel()
+    }
+
+    func registerUserPassword() {
+        NSUserDefaults.standardUserDefaults().registerDefaults(["password": "fox"])
     }
 
     func bindWithViewModel() {
