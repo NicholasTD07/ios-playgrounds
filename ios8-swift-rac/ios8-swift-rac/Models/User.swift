@@ -9,9 +9,18 @@
 import Foundation
 
 class User: NSObject {
-    dynamic var password: String
-
-    init(password: String) {
-        self.password = password
+    dynamic var password: String {
+        get {
+            if let password = NSUserDefaults.standardUserDefaults().stringForKey("password") {
+                return password
+            } else {
+                return "oops"
+            }
+        }
+        set(newPassword) {
+            NSUserDefaults.standardUserDefaults().setValue(newPassword, forKey: "password")
+        }
     }
+
+    let passwordKey = "password"
 }
