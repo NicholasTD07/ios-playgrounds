@@ -2,7 +2,7 @@
 
 This is a change password view written with ReactiveCocoa 3 using MVVM pattern.
 
-![Show case GIF](https://dl.dropboxusercontent.com/u/212792226/io8-swift-rac-take-2.gif)
+![Show case GIF](https://dl.dropboxusercontent.com/u/212792226/ios8-swift-rac-take-2.gif)
 
 ## Setup
 
