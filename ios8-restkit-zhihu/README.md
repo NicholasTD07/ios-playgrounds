@@ -2,6 +2,8 @@
 
 iOS app for reading ZhihuDaily
 
+![Daily App Showcase GIF](https://dl.dropboxusercontent.com/u/212792226/zhihu-daily-v1-take-3.gif)
+
 ## How it works?
 
 It uses RestKit to load and map Zhihu's JSON API responses into models.
