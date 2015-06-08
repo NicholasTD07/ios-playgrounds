@@ -1,19 +1,16 @@
 # ios8-swift-rac #
 
-## Setup ##
+This is a change password view written with ReactiveCocoa 3 using MVVM pattern.
 
-Run `bin/setup`
+![Show case GIF](https://dl.dropboxusercontent.com/u/212792226/io8-swift-rac-take-2.gif)
 
-This will:
+## Setup
 
- - Install the gem dependencies
- - Install the pod dependencies
+`brew install carthage`
+`carthage update  --platform all --use-ssh --use-submodules --no-use-binaries`
 
-## Testing ##
+## You can Change Password, Only When
 
-Run `bin/test`
-
-This will run the tests from the command line, and pipe the result through
-[XCPretty][].
-
-[XCPretty]: https://github.com/supermarin/xcpretty
+* The current password is inputted correctly.
+* The new password fields are not empty.
+* The 'New Password' matches the 'Confirm Password'.
